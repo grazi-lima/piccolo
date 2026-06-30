@@ -108,6 +108,7 @@ def get_pydantic_value_type(column: Column) -> type:
     return value_type
 
 
+
 def _filter_piccolo_columns(
     table: type[Table],
     include_default_columns: bool,
@@ -147,48 +148,70 @@ def _filter_piccolo_columns(
     return piccolo_columns
 
 
-def _process_column(
+def _validate_pydantic_params(
+    table: type[Table],
+    exclude_columns: tuple[Column, ...],
+    include_columns: tuple[Column, ...],
+    recursion_depth: int,
+) -> None:
+    if exclude_columns and include_columns:
+        raise ValueError(
+            "`include_columns` and `exclude_columns` can't be used at the "
+            "same time."
+        )
+
+    if recursion_depth == 0:
+        if exclude_columns:
+            if not validate_columns(columns=exclude_columns, table=table):
+                raise ValueError(
+                    f"`exclude_columns` are invalid: {exclude_columns!r}"
+                )
+
+        if include_columns:
+            if not validate_columns(columns=include_columns, table=table):
+                raise ValueError(
+                    f"`include_columns` are invalid: {include_columns!r}"
+                )
+
+
+def _get_value_type_for_column(
+    column: Column,
+    deserialize_json: bool,
+    is_optional: bool,
+    validators: dict[str, Callable],
+    column_name: str,
+) -> type:
+    if isinstance(column, (JSON, JSONB)):
+        if deserialize_json:
+            return pydantic.Json
+        validator = partial(
+            pydantic_json_validator, required=not is_optional
+        )
+        validators[
+            f"{column_name}_is_json"
+        ] = pydantic.field_validator(column_name)(
+            validator  # type: ignore
+        )
+        return column.value_type
+    return get_pydantic_value_type(column=column)
+
+
+def _build_extra_for_column(
     column: Column,
     model_name: str,
-    all_optional: bool,
-    deserialize_json: bool,
     nested: Union[bool, tuple[ForeignKey, ...]],
     include_readable: bool,
     recursion_depth: int,
     max_recursion_depth: int,
+    _type: type,
+    columns: dict[str, Any],
+    column_name: str,
     include_columns: tuple[Column, ...],
     exclude_columns: tuple[Column, ...],
     include_default_columns: bool,
-) -> tuple[list[tuple[str, Any]], dict[str, Callable]]:
-    column_name = column._meta.name
-    is_optional = True if all_optional else not column._meta.required
-    validators: dict[str, Callable] = {}
-
-    if isinstance(column, (JSON, JSONB)):
-        if deserialize_json:
-            value_type = pydantic.Json
-        else:
-            value_type = column.value_type
-            validator = partial(
-                pydantic_json_validator, required=not is_optional
-            )
-            validators[
-                f"{column_name}_is_json"
-            ] = pydantic.field_validator(column_name)(
-                validator  # type: ignore
-            )
-    else:
-        value_type = get_pydantic_value_type(column=column)
-
-    _type = Optional[value_type] if is_optional else value_type
-
-    params: dict[str, Any] = {}
-    if is_optional:
-        params["default"] = None
-
-    if column._meta.db_column_name != column._meta.name:
-        params["alias"] = column._meta.db_column_name
-
+    all_optional: bool,
+    deserialize_json: bool,
+) -> tuple[JsonDict, type]:
     extra: JsonDict = {
         "help_text": column._meta.help_text,
         "choices": column._meta.get_choices_dict(),
@@ -235,6 +258,9 @@ def _process_column(
             "to": tablename,
             "target_column": target_column,
         }
+
+        if include_readable:
+            columns[f"{column_name}_readable"] = (str, None)
     else:
         if isinstance(column, Text):
             extra["widget"] = "text-area"
@@ -246,17 +272,7 @@ def _process_column(
         if isinstance(column, Array):
             extra["dimensions"] = column._get_dimensions()
 
-    field = pydantic.Field(
-        json_schema_extra={"extra": extra},
-        **params,
-    )
-
-    entries: list[tuple[str, Any]] = [(column_name, (_type, field))]
-
-    if isinstance(column, ForeignKey) and include_readable:
-        entries.append((f"{column_name}_readable", (str, None)))
-
-    return entries, validators
+    return extra, _type
 
 
 def _build_pydantic_config(
@@ -277,6 +293,8 @@ def _build_pydantic_config(
     pydantic_config["json_schema_extra"] = dict(json_schema_extra_)
 
     return pydantic_config
+
+
 
 
 def create_pydantic_model(
@@ -352,24 +370,7 @@ def create_pydantic_model(
         A Pydantic model.
 
     """  # noqa: E501
-    if exclude_columns and include_columns:
-        raise ValueError(
-            "`include_columns` and `exclude_columns` can't be used at the "
-            "same time."
-        )
-
-    if recursion_depth == 0:
-        if exclude_columns:
-            if not validate_columns(columns=exclude_columns, table=table):
-                raise ValueError(
-                    f"`exclude_columns` are invalid: {exclude_columns!r}"
-                )
-
-        if include_columns:
-            if not validate_columns(columns=include_columns, table=table):
-                raise ValueError(
-                    f"`include_columns` are invalid: {include_columns!r}"
-                )
+    _validate_pydantic_params(table, exclude_columns, include_columns, recursion_depth)
 
     ###########################################################################
 
@@ -386,22 +387,50 @@ def create_pydantic_model(
     model_name = model_name or table.__name__
 
     for column in piccolo_columns:
-        entries, extra_validators = _process_column(
-            column=column,
-            model_name=model_name,
-            all_optional=all_optional,
-            deserialize_json=deserialize_json,
-            nested=nested,
-            include_readable=include_readable,
-            recursion_depth=recursion_depth,
-            max_recursion_depth=max_recursion_depth,
-            include_columns=include_columns,
-            exclude_columns=exclude_columns,
-            include_default_columns=include_default_columns,
+        column_name = column._meta.name
+
+        is_optional = True if all_optional else not column._meta.required
+
+        #######################################################################
+        # Work out the column type
+
+        value_type = _get_value_type_for_column(
+            column, deserialize_json, is_optional, validators, column_name
         )
-        for name, value in entries:
-            columns[name] = value
-        validators.update(extra_validators)
+
+        _type = Optional[value_type] if is_optional else value_type
+
+        #######################################################################
+
+        params: dict[str, Any] = {}
+        if is_optional:
+            params["default"] = None
+
+        if column._meta.db_column_name != column._meta.name:
+            params["alias"] = column._meta.db_column_name
+
+        extra, _type = _build_extra_for_column(
+            column,
+            model_name,
+            nested,
+            include_readable,
+            recursion_depth,
+            max_recursion_depth,
+            _type,
+            columns,
+            column_name,
+            include_columns,
+            exclude_columns,
+            include_default_columns,
+            all_optional,
+            deserialize_json,
+        )
+
+        field = pydantic.Field(
+            json_schema_extra={"extra": extra},
+            **params,
+        )
+        columns[column_name] = (_type, field)
 
     pydantic_config = _build_pydantic_config(
         pydantic_config=pydantic_config,

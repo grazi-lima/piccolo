@@ -522,127 +522,171 @@ class SerialisedDecimal:
 ###############################################################################
 
 
-def _handle_builtin(key, value, params, extra_imports, extra_definitions, inline_enums):
+@dataclass
+class _SerialisationResult:
+    value: Any
+    imports: list[Import]
+    definitions: list[Definition]
+
+
+_Handler = Callable[[str, Any, bool], _SerialisationResult | None]
+
+
+def _handle_builtin(
+    key: str, value: Any, inline_enums: bool = True
+) -> _SerialisationResult | None:
     if inspect.getmodule(value) == builtins:
-        params[key] = SerialisedBuiltin(builtin=value)
-        return True
-    return False
+        return _SerialisationResult(
+            value=SerialisedBuiltin(builtin=value),
+            imports=[],
+            definitions=[],
+        )
+    return None
 
 
-def _handle_column(key, value, params, extra_imports, extra_definitions, inline_enums):
+def _handle_column(
+    key: str, value: Any, inline_enums: bool = True
+) -> _SerialisationResult | None:
     if isinstance(value, Column):
         if key == "target_column":
-            params[key] = value._meta.name
-            return True
+            return _SerialisationResult(
+                value=value._meta.name,
+                imports=[],
+                definitions=[],
+            )
 
         column: Column = value
         serialised_params: SerialisedParams = serialise_params(
             params=column._meta.params
         )
-        extra_imports.extend(serialised_params.extra_imports)
-        extra_definitions.extend(serialised_params.extra_definitions)
 
         column_class_name = column.__class__.__name__
-        extra_imports.append(
-            Import(
-                module=column.__class__.__module__,
-                target=column_class_name,
-                expect_conflict_with_global_name=getattr(
-                    UniqueGlobalNames,
-                    f"COLUMN_{column_class_name.upper()}",
-                    None,
-                ),
-            )
-        )
-        params[key] = SerialisedColumnInstance(
-            instance=value, serialised_params=serialised_params
-        )
-        return True
-    return False
-
-
-def _handle_default(key, value, params, extra_imports, extra_definitions, inline_enums):
-    if isinstance(value, Default):
-        params[key] = SerialisedClassInstance(instance=value)
-        extra_imports.append(
-            Import(
-                module=value.__class__.__module__,
-                target=value.__class__.__name__,
-                expect_conflict_with_global_name=UniqueGlobalNames.DEFAULT,
-            )
-        )
-        return True
-    return False
-
-
-def _handle_datetime(key, value, params, extra_imports, extra_definitions, inline_enums):
-    if isinstance(value, (datetime.time, datetime.datetime, datetime.date)):
-        extra_imports.append(
-            Import(
-                module=value.__class__.__module__,
-                target=value.__class__.__name__,
-            )
-        )
-        return True
-    return False
-
-
-def _handle_uuid(key, value, params, extra_imports, extra_definitions, inline_enums):
-    if isinstance(value, uuid.UUID):
-        params[key] = SerialisedUUID(instance=value)
-        extra_imports.append(
-            Import(
-                module=UniqueGlobalNames.EXTERNAL_MODULE_UUID,
-                expect_conflict_with_global_name=(
-                    UniqueGlobalNames.EXTERNAL_MODULE_UUID
-                ),
-            )
-        )
-        return True
-    return False
-
-
-def _handle_decimal(key, value, params, extra_imports, extra_definitions, inline_enums):
-    if isinstance(value, decimal.Decimal):
-        params[key] = SerialisedDecimal(instance=value)
-        extra_imports.append(
-            Import(
-                module=UniqueGlobalNames.STD_LIB_MODULE_DECIMAL,
-                expect_conflict_with_global_name=(
-                    UniqueGlobalNames.STD_LIB_MODULE_DECIMAL
-                ),
-            )
-        )
-        return True
-    return False
-
-
-def _handle_enum_instance(key, value, params, extra_imports, extra_definitions, inline_enums):
-    if isinstance(value, Enum):
-        if value.__module__.startswith("piccolo"):
-            params[key] = SerialisedEnumInstance(instance=value)
-            extra_imports.append(
+        return _SerialisationResult(
+            value=SerialisedColumnInstance(
+                instance=value, serialised_params=serialised_params
+            ),
+            imports=[
+                *serialised_params.extra_imports,
                 Import(
-                    module=value.__module__,
+                    module=column.__class__.__module__,
+                    target=column_class_name,
+                    expect_conflict_with_global_name=getattr(
+                        UniqueGlobalNames,
+                        f"COLUMN_{column_class_name.upper()}",
+                        None,
+                    ),
+                ),
+            ],
+            definitions=list(serialised_params.extra_definitions),
+        )
+    return None
+
+
+def _handle_default(
+    key: str, value: Any, inline_enums: bool = True
+) -> _SerialisationResult | None:
+    if isinstance(value, Default):
+        return _SerialisationResult(
+            value=SerialisedClassInstance(instance=value),
+            imports=[
+                Import(
+                    module=value.__class__.__module__,
+                    target=value.__class__.__name__,
+                    expect_conflict_with_global_name=UniqueGlobalNames.DEFAULT,
+                )
+            ],
+            definitions=[],
+        )
+    return None
+
+
+def _handle_datetime(
+    key: str, value: Any, inline_enums: bool = True
+) -> _SerialisationResult | None:
+    if isinstance(value, (datetime.time, datetime.datetime, datetime.date)):
+        return _SerialisationResult(
+            value=value,
+            imports=[
+                Import(
+                    module=value.__class__.__module__,
                     target=value.__class__.__name__,
                 )
+            ],
+            definitions=[],
+        )
+    return None
+
+
+def _handle_uuid(
+    key: str, value: Any, inline_enums: bool = True
+) -> _SerialisationResult | None:
+    if isinstance(value, uuid.UUID):
+        return _SerialisationResult(
+            value=SerialisedUUID(instance=value),
+            imports=[
+                Import(
+                    module=UniqueGlobalNames.EXTERNAL_MODULE_UUID,
+                    expect_conflict_with_global_name=(
+                        UniqueGlobalNames.EXTERNAL_MODULE_UUID
+                    ),
+                )
+            ],
+            definitions=[],
+        )
+    return None
+
+
+def _handle_decimal(
+    key: str, value: Any, inline_enums: bool = True
+) -> _SerialisationResult | None:
+    if isinstance(value, decimal.Decimal):
+        return _SerialisationResult(
+            value=SerialisedDecimal(instance=value),
+            imports=[
+                Import(
+                    module=UniqueGlobalNames.STD_LIB_MODULE_DECIMAL,
+                    expect_conflict_with_global_name=(
+                        UniqueGlobalNames.STD_LIB_MODULE_DECIMAL
+                    ),
+                )
+            ],
+            definitions=[],
+        )
+    return None
+
+
+def _handle_enum_instance(
+    key: str, value: Any, inline_enums: bool = True
+) -> _SerialisationResult | None:
+    if isinstance(value, Enum):
+        if value.__module__.startswith("piccolo"):
+            return _SerialisationResult(
+                value=SerialisedEnumInstance(instance=value),
+                imports=[
+                    Import(
+                        module=value.__module__,
+                        target=value.__class__.__name__,
+                    )
+                ],
+                definitions=[],
             )
         else:
             enum_serialised_params: SerialisedParams = serialise_params(
                 params={key: value.value}
             )
-            params[key] = enum_serialised_params.params[key]
-            extra_imports.extend(enum_serialised_params.extra_imports)
-            extra_definitions.extend(
-                enum_serialised_params.extra_definitions
+            return _SerialisationResult(
+                value=enum_serialised_params.params[key],
+                imports=list(enum_serialised_params.extra_imports),
+                definitions=list(enum_serialised_params.extra_definitions),
             )
-        return True
-    return False
+    return None
 
 
-def _handle_enum_type(key, value, params, extra_imports, extra_definitions, inline_enums):
+def _handle_enum_type(
+    key: str, value: Any, inline_enums: bool = True
+) -> _SerialisationResult | None:
     if inspect.isclass(value) and issubclass(value, Enum):
-        extra_imports.append(
+        extra_imports: list[Import] = [
             Import(
                 module="enum",
                 target=UniqueGlobalNames.STD_LIB_ENUM,
@@ -650,11 +694,10 @@ def _handle_enum_type(key, value, params, extra_imports, extra_definitions, inli
                     UniqueGlobalNames.STD_LIB_ENUM
                 ),
             )
-        )
+        ]
         for member in value:
             type_ = type(member.value)
             module = inspect.getmodule(type_)
-
             if module and module != builtins:
                 module_name = module.__name__
                 extra_imports.append(
@@ -662,103 +705,125 @@ def _handle_enum_type(key, value, params, extra_imports, extra_definitions, inli
                 )
 
         if inline_enums:
-            params[key] = InlineSerialisedEnumType(enum_type=value)
-        else:
-            params[key] = SerialisedReference(name=value.__name__)
-            extra_definitions.append(
-                SerialisedEnumTypeDefinition(enum_type=value)
+            return _SerialisationResult(
+                value=InlineSerialisedEnumType(enum_type=value),
+                imports=extra_imports,
+                definitions=[],
             )
-        return True
-    return False
+        else:
+            return _SerialisationResult(
+                value=SerialisedReference(name=value.__name__),
+                imports=extra_imports,
+                definitions=[
+                    SerialisedEnumTypeDefinition(enum_type=value)
+                ],
+            )
+    return None
 
 
-def _handle_function(key, value, params, extra_imports, extra_definitions, inline_enums):
+def _handle_function(
+    key: str, value: Any, inline_enums: bool = True
+) -> _SerialisationResult | None:
     if inspect.isfunction(value):
         if value.__name__ == "<lambda>":
             raise ValueError("Lambdas can't be serialised")
 
-        params[key] = SerialisedCallable(callable_=value)
-        extra_imports.append(
-            Import(module=value.__module__, target=value.__name__)
+        return _SerialisationResult(
+            value=SerialisedCallable(callable_=value),
+            imports=[
+                Import(
+                    module=value.__module__, target=value.__name__
+                )
+            ],
+            definitions=[],
         )
-        return True
-    return False
+    return None
 
 
-def _handle_lazy_table_reference(key, value, params, extra_imports, extra_definitions, inline_enums):
+def _handle_lazy_table_ref(
+    key: str, value: Any, inline_enums: bool = True
+) -> _SerialisationResult | None:
     if isinstance(value, LazyTableReference):
         table_type = value.resolve()
-        params[key] = SerialisedCallable(callable_=table_type)
-        extra_definitions.append(
-            SerialisedTableType(table_type=table_type)
-        )
-        extra_imports.append(
-            Import(
-                module=Table.__module__,
-                target=UniqueGlobalNames.TABLE,
-                expect_conflict_with_global_name=UniqueGlobalNames.TABLE,
-            )
-        )
         primary_key_class = table_type._meta.primary_key.__class__
-        extra_imports.append(
-            Import(
-                module=primary_key_class.__module__,
-                target=primary_key_class.__name__,
-                expect_conflict_with_global_name=getattr(
-                    UniqueGlobalNames,
-                    f"COLUMN_{primary_key_class.__name__.upper()}",
-                    None,
+        return _SerialisationResult(
+            value=SerialisedCallable(callable_=table_type),
+            imports=[
+                Import(
+                    module=Table.__module__,
+                    target=UniqueGlobalNames.TABLE,
+                    expect_conflict_with_global_name=UniqueGlobalNames.TABLE,
                 ),
-            )
+                Import(
+                    module=primary_key_class.__module__,
+                    target=primary_key_class.__name__,
+                    expect_conflict_with_global_name=getattr(
+                        UniqueGlobalNames,
+                        f"COLUMN_{primary_key_class.__name__.upper()}",
+                        None,
+                    ),
+                ),
+            ],
+            definitions=[
+                SerialisedTableType(table_type=table_type)
+            ],
         )
-        return True
-    return False
+    return None
 
 
-def _handle_table(key, value, params, extra_imports, extra_definitions, inline_enums):
+def _handle_table_class(
+    key: str, value: Any, inline_enums: bool = True
+) -> _SerialisationResult | None:
     if inspect.isclass(value) and issubclass(value, Table):
-        params[key] = SerialisedCallable(callable_=value)
-        extra_definitions.append(SerialisedTableType(table_type=value))
-        extra_imports.append(
-            Import(
-                module=Table.__module__,
-                target=UniqueGlobalNames.TABLE,
-                expect_conflict_with_global_name=UniqueGlobalNames.TABLE,
-            )
-        )
-
         primary_key_class = value._meta.primary_key.__class__
-        extra_imports.append(
-            Import(
-                module=primary_key_class.__module__,
-                target=primary_key_class.__name__,
-                expect_conflict_with_global_name=getattr(
-                    UniqueGlobalNames,
-                    f"COLUMN_{primary_key_class.__name__.upper()}",
-                    None,
-                ),
-            )
-        )
         pk_serialised_params: SerialisedParams = serialise_params(
             params=value._meta.primary_key._meta.params
         )
-        extra_imports.extend(pk_serialised_params.extra_imports)
-        extra_definitions.extend(pk_serialised_params.extra_definitions)
-        return True
-    return False
 
-
-def _handle_plain_class(key, value, params, extra_imports, extra_definitions, inline_enums):
-    if inspect.isclass(value) and not issubclass(value, Enum):
-        params[key] = SerialisedCallable(callable_=value)
-        extra_imports.append(
-            Import(module=value.__module__, target=value.__name__)
+        return _SerialisationResult(
+            value=SerialisedCallable(callable_=value),
+            imports=[
+                Import(
+                    module=Table.__module__,
+                    target=UniqueGlobalNames.TABLE,
+                    expect_conflict_with_global_name=UniqueGlobalNames.TABLE,
+                ),
+                Import(
+                    module=primary_key_class.__module__,
+                    target=primary_key_class.__name__,
+                    expect_conflict_with_global_name=getattr(
+                        UniqueGlobalNames,
+                        f"COLUMN_{primary_key_class.__name__.upper()}",
+                        None,
+                    ),
+                ),
+                *pk_serialised_params.extra_imports,
+            ],
+            definitions=[
+                SerialisedTableType(table_type=value),
+                *pk_serialised_params.extra_definitions,
+            ],
         )
-        return True
-    return False
+    return None
 
 
-HANDLERS = [
+def _handle_plain_class(
+    key: str, value: Any, inline_enums: bool = True
+) -> _SerialisationResult | None:
+    if inspect.isclass(value) and not issubclass(value, Enum):
+        return _SerialisationResult(
+            value=SerialisedCallable(callable_=value),
+            imports=[
+                Import(
+                    module=value.__module__, target=value.__name__
+                )
+            ],
+            definitions=[],
+        )
+    return None
+
+
+_HANDLERS: list[_Handler] = [
     _handle_builtin,
     _handle_column,
     _handle_default,
@@ -768,8 +833,8 @@ HANDLERS = [
     _handle_enum_instance,
     _handle_enum_type,
     _handle_function,
-    _handle_lazy_table_reference,
-    _handle_table,
+    _handle_lazy_table_ref,
+    _handle_table_class,
     _handle_plain_class,
 ]
 
@@ -799,10 +864,13 @@ def serialise_params(
     extra_definitions: list[Definition] = []
 
     for key, value in params.items():
-        for handler in HANDLERS:
-            if handler(key, value, params, extra_imports, extra_definitions, inline_enums):
+        for handler in _HANDLERS:
+            result = handler(key, value, inline_enums=inline_enums)
+            if result is not None:
+                params[key] = result.value
+                extra_imports.extend(result.imports)
+                extra_definitions.extend(result.definitions)
                 break
-
     unique_extra_imports = list(set(extra_imports))
     UniqueGlobalNames.warn_if_are_conflicting_objects(unique_extra_imports)
 

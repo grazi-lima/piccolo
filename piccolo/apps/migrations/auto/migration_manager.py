@@ -491,6 +491,26 @@ class MigrationManager:
         else:
             await query.run()
 
+    ###########################################################################
+
+    @staticmethod
+    def _get_alter_params(
+        alter_column: AlterColumn, backwards: bool
+    ) -> tuple[dict[str, Any], dict[str, Any]]:
+        if backwards:
+            return alter_column.old_params, alter_column.params
+        return alter_column.params, alter_column.old_params
+
+    @staticmethod
+    def _get_alter_classes(
+        alter_column: AlterColumn, backwards: bool
+    ) -> tuple[type[Column], type[Column]]:
+        if backwards:
+            return alter_column.old_column_class, alter_column.column_class
+        return alter_column.column_class, alter_column.old_column_class
+
+    ###########################################################################
+
     async def _run_alter_columns(self, backwards: bool = False):
         for table_class_name in self.operations.column_operations.alter_columns.table_class_names:
             alter_columns = self.operations.column_operations.alter_columns.for_table_class_name(
@@ -509,63 +529,59 @@ class MigrationManager:
             )
 
             for alter_column in alter_columns:
-                params = (
-                    alter_column.old_params
-                    if backwards
-                    else alter_column.params
+                params, old_params = self._get_alter_params(
+                    alter_column, backwards
                 )
-
-                old_params = (
-                    alter_column.params
-                    if backwards
-                    else alter_column.old_params
+                column_class, old_column_class = self._get_alter_classes(
+                    alter_column, backwards
                 )
 
                 await self._run_alter_column_type(
-                    _Table, alter_column, backwards, params, old_params,
+                    alter_column=alter_column,
+                    params=params,
+                    old_params=old_params,
+                    column_class=column_class,
+                    old_column_class=old_column_class,
+                    _Table=_Table,
                 )
-                await self._run_alter_foreign_key(
-                    _Table, alter_column, params, table_class_name
+                await self._run_alter_fk_constraints(
+                    alter_column=alter_column,
+                    params=params,
+                    table_class_name=table_class_name,
+                    _Table=_Table,
                 )
-                await self._run_alter_null(_Table, alter_column, params)
-                await self._run_alter_length(_Table, alter_column, params)
-                await self._run_alter_unique(_Table, alter_column, params)
-                await self._run_alter_index(_Table, alter_column, params)
-                await self._run_alter_default(_Table, alter_column, params)
-                await self._run_alter_digits(_Table, alter_column, params)
+                await self._run_alter_nullable(
+                    alter_column=alter_column, params=params, _Table=_Table
+                )
+                await self._run_alter_length(
+                    alter_column=alter_column, params=params, _Table=_Table
+                )
+                await self._run_alter_unique(
+                    alter_column=alter_column, params=params, _Table=_Table
+                )
+                await self._run_alter_index(
+                    alter_column=alter_column, params=params, _Table=_Table
+                )
+                await self._run_alter_default(
+                    alter_column=alter_column, params=params, _Table=_Table
+                )
+                await self._run_alter_digits(
+                    alter_column=alter_column, params=params, _Table=_Table
+                )
 
     ###########################################################################
-
-    @staticmethod
-    def _build_meta_column(
-        _Table: type[Table],
-        alter_column: AlterColumn,
-    ) -> Column:
-        column = Column()
-        column._meta._table = _Table
-        column._meta._name = alter_column.column_name
-        column._meta.db_column_name = alter_column.db_column_name
-        return column
+    # Helper methods for _run_alter_columns
+    ###########################################################################
 
     async def _run_alter_column_type(
         self,
-        _Table: type[Table],
         alter_column: AlterColumn,
-        backwards: bool,
-        params: dict,
-        old_params: dict,
+        params: dict[str, Any],
+        old_params: dict[str, Any],
+        column_class: type[Column],
+        old_column_class: type[Column],
+        _Table: type[Table],
     ):
-        column_class = (
-            alter_column.old_column_class
-            if backwards
-            else alter_column.column_class
-        )
-        old_column_class = (
-            alter_column.column_class
-            if backwards
-            else alter_column.old_column_class
-        )
-
         if (old_column_class is not None) and (column_class is not None):
             if old_column_class != column_class:
                 old_column = old_column_class(**old_params)
@@ -594,10 +610,10 @@ class MigrationManager:
                 if issubclass(column_class, Serial) and issubclass(
                     old_column_class, Serial
                 ):
-                colored_warning(
-                    "Unable to migrate Serial to BigSerial and "
-                    "vice versa. This must be done manually."
-                )
+                    colored_warning(
+                        "Unable to migrate Serial to BigSerial and "
+                        "vice versa. This must be done manually."
+                    )
                 else:
                     await self._run_query(
                         _Table.alter().set_column_type(
@@ -607,12 +623,12 @@ class MigrationManager:
                         )
                     )
 
-    async def _run_alter_foreign_key(
+    async def _run_alter_fk_constraints(
         self,
-        _Table: type[Table],
         alter_column: AlterColumn,
-        params: dict,
+        params: dict[str, Any],
         table_class_name: str,
+        _Table: type[Table],
     ):
         on_delete = params.get("on_delete")
         on_update = params.get("on_update")
@@ -628,7 +644,9 @@ class MigrationManager:
 
             assert isinstance(fk_column, ForeignKey)
 
-            constraint_name = await get_fk_constraint_name(column=fk_column)
+            constraint_name = await get_fk_constraint_name(
+                column=fk_column
+            )
             if constraint_name:
                 await self._run_query(
                     _Table.alter().drop_constraint(
@@ -644,11 +662,11 @@ class MigrationManager:
                 )
             )
 
-    async def _run_alter_null(
+    async def _run_alter_nullable(
         self,
-        _Table: type[Table],
         alter_column: AlterColumn,
-        params: dict,
+        params: dict[str, Any],
+        _Table: type[Table],
     ):
         null = params.get("null")
         if null is not None:
@@ -660,9 +678,9 @@ class MigrationManager:
 
     async def _run_alter_length(
         self,
-        _Table: type[Table],
         alter_column: AlterColumn,
-        params: dict,
+        params: dict[str, Any],
+        _Table: type[Table],
     ):
         length = params.get("length")
         if length is not None:
@@ -674,28 +692,36 @@ class MigrationManager:
 
     async def _run_alter_unique(
         self,
-        _Table: type[Table],
         alter_column: AlterColumn,
-        params: dict,
+        params: dict[str, Any],
+        _Table: type[Table],
     ):
         unique = params.get("unique")
         if unique is not None:
-            column = self._build_meta_column(_Table, alter_column)
+            column = Column()
+            column._meta._table = _Table
+            column._meta._name = alter_column.column_name
+            column._meta.db_column_name = alter_column.db_column_name
             await self._run_query(
-                _Table.alter().set_unique(column=column, boolean=unique)
+                _Table.alter().set_unique(
+                    column=column, boolean=unique
+                )
             )
 
     async def _run_alter_index(
         self,
-        _Table: type[Table],
         alter_column: AlterColumn,
-        params: dict,
+        params: dict[str, Any],
+        _Table: type[Table],
     ):
         index = params.get("index")
         index_method = params.get("index_method")
         if index is None:
             if index_method is not None:
-                column = self._build_meta_column(_Table, alter_column)
+                column = Column()
+                column._meta._table = _Table
+                column._meta._name = alter_column.column_name
+                column._meta.db_column_name = alter_column.db_column_name
                 await self._run_query(_Table.drop_index([column]))
                 await self._run_query(
                     _Table.create_index(
@@ -705,7 +731,11 @@ class MigrationManager:
                     )
                 )
         else:
-            column = self._build_meta_column(_Table, alter_column)
+            column = Column()
+            column._meta._table = _Table
+            column._meta._name = alter_column.column_name
+            column._meta.db_column_name = alter_column.db_column_name
+
             if index is True:
                 kwargs = (
                     {"method": index_method} if index_method else {}
@@ -720,13 +750,17 @@ class MigrationManager:
 
     async def _run_alter_default(
         self,
-        _Table: type[Table],
         alter_column: AlterColumn,
-        params: dict,
+        params: dict[str, Any],
+        _Table: type[Table],
     ):
         default = params.get("default", ...)
         if default is not ...:
-            column = self._build_meta_column(_Table, alter_column)
+            column = Column()
+            column._meta._table = _Table
+            column._meta._name = alter_column.column_name
+            column._meta.db_column_name = alter_column.db_column_name
+
             if default is None:
                 await self._run_query(
                     _Table.alter().drop_default(column=column)
@@ -741,9 +775,9 @@ class MigrationManager:
 
     async def _run_alter_digits(
         self,
-        _Table: type[Table],
         alter_column: AlterColumn,
-        params: dict,
+        params: dict[str, Any],
+        _Table: type[Table],
     ):
         digits = params.get("digits", ...)
         if digits is not ...:

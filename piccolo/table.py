@@ -312,6 +312,21 @@ class TableMetaclass(type):
         return cls.__name__
 
 
+@dataclass
+class _ClassifiedColumns:
+    columns: list[Column] = field(default_factory=list)
+    default_columns: list[Column] = field(default_factory=list)
+    non_default_columns: list[Column] = field(default_factory=list)
+    array_columns: list[Array] = field(default_factory=list)
+    foreign_key_columns: list[ForeignKey] = field(default_factory=list)
+    secret_columns: list[Column] = field(default_factory=list)
+    json_columns: list[Union[JSON, JSONB]] = field(default_factory=list)
+    email_columns: list[Email] = field(default_factory=list)
+    auto_update_columns: list[Column] = field(default_factory=list)
+    primary_key: Optional[Column] = None
+    m2m_relationships: list[M2M] = field(default_factory=list)
+
+
 class Table(metaclass=TableMetaclass):
     """
     The class represents a database table. An instance represents a row.
@@ -321,8 +336,96 @@ class Table(metaclass=TableMetaclass):
     # actual values are set in __init_subclass__.
     _meta = TableMeta()
 
+    def __init_subclass__(
+        cls,
+        tablename: Optional[str] = None,
+        db: Optional[Engine] = None,
+        tags: Optional[list[str]] = None,
+        help_text: Optional[str] = None,
+        schema: Optional[str] = None,
+    ):  # sourcery no-metrics
+        """
+        Automatically populate the _meta, which includes the tablename, and
+        columns.
+
+        :param tablename:
+            Specify a custom tablename. By default the classname is converted
+            to snakecase.
+        :param db:
+            Manually specify an engine to use for connecting to the database.
+            Useful when writing simple scripts. If not set, the engine is
+            imported from piccolo_conf.py using ``engine_finder``.
+        :param tags:
+            Used for filtering, for example by ``table_finder``.
+        :param help_text:
+            A user friendly description of what the table is used for. It isn't
+            used in the database, but will be used by tools such a Piccolo
+            Admin for tooltips.
+        :param schema:
+            The Postgres schema to use for this table.
+
+        """
+        if tags is None:
+            tags = []
+        tablename, schema = cls._process_tablename(tablename, schema)
+        classified = cls._classify_columns()
+
+        if not classified.primary_key:
+            primary_key = cls._create_serial_primary_key()
+            setattr(cls, "id", primary_key)
+            classified.columns.insert(0, primary_key)
+            classified.default_columns.append(primary_key)
+            classified.primary_key = primary_key
+        else:
+            primary_key = classified.primary_key
+
+        cls._meta = TableMeta(
+            tablename=tablename,
+            tags=tags,
+            help_text=help_text,
+            _db=db,
+            schema=schema,
+            _column_groups=_ColumnGroups(
+                columns=classified.columns,
+                default_columns=classified.default_columns,
+                non_default_columns=classified.non_default_columns,
+                array_columns=classified.array_columns,
+                email_columns=classified.email_columns,
+                foreign_key_columns=classified.foreign_key_columns,
+                primary_key=primary_key,
+                json_columns=classified.json_columns,
+                secret_columns=classified.secret_columns,
+                auto_update_columns=classified.auto_update_columns,
+                m2m_relationships=classified.m2m_relationships,
+            ),
+        )
+
+        cls._setup_foreign_keys()
+
+        TABLE_REGISTRY.append(cls)
+
     @classmethod
-    def _collect_columns(cls) -> _ColumnCollection:
+    def _process_tablename(
+        cls,
+        tablename: Optional[str],
+        schema: Optional[str],
+    ) -> tuple[str, Optional[str]]:
+        tablename = tablename or _camel_to_snake(cls.__name__)
+
+        if "." in tablename:
+            warnings.warn(
+                "There's a '.' in the tablename - please use the `schema` "
+                "argument instead."
+            )
+            schema, tablename = tablename.split(".", maxsplit=1)
+
+        if tablename in PROTECTED_TABLENAMES:
+            warnings.warn(TABLENAME_WARNING.format(tablename=tablename))
+
+        return tablename, schema
+
+    @classmethod
+    def _classify_columns(cls) -> _ClassifiedColumns:
         columns: list[Column] = []
         default_columns: list[Column] = []
         non_default_columns: list[Column] = []
@@ -382,7 +485,7 @@ class Table(metaclass=TableMetaclass):
                 attribute._meta._table = cls
                 m2m_relationships.append(attribute)
 
-        return _ColumnCollection(
+        return _ClassifiedColumns(
             columns=columns,
             default_columns=default_columns,
             non_default_columns=non_default_columns,
@@ -396,92 +499,9 @@ class Table(metaclass=TableMetaclass):
             m2m_relationships=m2m_relationships,
         )
 
-    def __init_subclass__(
-        cls,
-        tablename: Optional[str] = None,
-        db: Optional[Engine] = None,
-        tags: Optional[list[str]] = None,
-        help_text: Optional[str] = None,
-        schema: Optional[str] = None,
-    ):
-        """
-        Automatically populate the _meta, which includes the tablename, and
-        columns.
-
-        :param tablename:
-            Specify a custom tablename. By default the classname is converted
-            to snakecase.
-        :param db:
-            Manually specify an engine to use for connecting to the database.
-            Useful when writing simple scripts. If not set, the engine is
-            imported from piccolo_conf.py using ``engine_finder``.
-        :param tags:
-            Used for filtering, for example by ``table_finder``.
-        :param help_text:
-            A user friendly description of what the table is used for. It isn't
-            used in the database, but will be used by tools such a Piccolo
-            Admin for tooltips.
-        :param schema:
-            The Postgres schema to use for this table.
-
-        """
-        if tags is None:
-            tags = []
-        tablename = tablename or _camel_to_snake(cls.__name__)
-
-        if "." in tablename:
-            warnings.warn(
-                "There's a '.' in the tablename - please use the `schema` "
-                "argument instead."
-            )
-            schema, tablename = tablename.split(".", maxsplit=1)
-
-        if tablename in PROTECTED_TABLENAMES:
-            warnings.warn(TABLENAME_WARNING.format(tablename=tablename))
-
-        collected = cls._collect_columns()
-
-        if not collected.primary_key:
-            primary_key = cls._create_serial_primary_key()
-            setattr(cls, "id", primary_key)
-            collected.columns.insert(0, primary_key)
-            collected.default_columns.append(primary_key)
-            collected.primary_key = primary_key
-
-        columns = collected.columns
-        default_columns = collected.default_columns
-        non_default_columns = collected.non_default_columns
-        array_columns = collected.array_columns
-        email_columns = collected.email_columns
-        foreign_key_columns = collected.foreign_key_columns
-        primary_key = collected.primary_key
-        json_columns = collected.json_columns
-        secret_columns = collected.secret_columns
-        auto_update_columns = collected.auto_update_columns
-        m2m_relationships = collected.m2m_relationships
-
-        cls._meta = TableMeta(
-            tablename=tablename,
-            tags=tags,
-            help_text=help_text,
-            _db=db,
-            schema=schema,
-            _column_groups=_ColumnGroups(
-                columns=columns,
-                default_columns=default_columns,
-                non_default_columns=non_default_columns,
-                array_columns=array_columns,
-                email_columns=email_columns,
-                foreign_key_columns=foreign_key_columns,
-                primary_key=primary_key,
-                json_columns=json_columns,
-                secret_columns=secret_columns,
-                auto_update_columns=auto_update_columns,
-                m2m_relationships=m2m_relationships,
-            ),
-        )
-
-        for foreign_key_column in collected.foreign_key_columns:
+    @classmethod
+    def _setup_foreign_keys(cls) -> None:
+        for foreign_key_column in cls._meta.foreign_key_columns:
             foreign_key_setup_response = foreign_key_column._setup(
                 table_class=cls
             )
@@ -489,8 +509,13 @@ class Table(metaclass=TableMetaclass):
                 LAZY_COLUMN_REFERENCES.foreign_key_columns.append(
                     foreign_key_column
                 )
-
-        TABLE_REGISTRY.append(cls)
+            foreign_key_setup_response = foreign_key_column._setup(
+                table_class=cls
+            )
+            if foreign_key_setup_response.is_lazy:
+                LAZY_COLUMN_REFERENCES.foreign_key_columns.append(
+                    foreign_key_column
+                )
 
     def __init__(
         self,
