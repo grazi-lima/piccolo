@@ -1,0 +1,787 @@
+[
+  {
+    "arquivo": "piccolo/apps/user/commands/change_password.py",
+    "convention": 1,
+    "total": 111,
+    "refactor": 110
+  },
+  {
+    "arquivo": "piccolo/apps/migrations/auto/migration_manager.py",
+    "convention": 55,
+    "total": 107,
+    "refactor": 7,
+    "warning": 44,
+    "error": 1
+  },
+  {
+    "arquivo": "piccolo/query/methods/select.py",
+    "convention": 33,
+    "total": 102,
+    "warning": 62,
+    "refactor": 7
+  },
+  {
+    "arquivo": "piccolo/table.py",
+    "convention": 19,
+    "total": 99,
+    "refactor": 7,
+    "warning": 73
+  },
+  {
+    "arquivo": "piccolo/columns/column_types.py",
+    "convention": 22,
+    "total": 98,
+    "warning": 43,
+    "refactor": 33
+  },
+  {
+    "arquivo": "piccolo/columns/base.py",
+    "convention": 44,
+    "total": 93,
+    "refactor": 17,
+    "warning": 32
+  },
+  {
+    "arquivo": "piccolo/query/mixins.py",
+    "convention": 61,
+    "total": 80,
+    "warning": 15,
+    "refactor": 4
+  },
+  {
+    "arquivo": "piccolo/columns/m2m.py",
+    "convention": 20,
+    "total": 75,
+    "refactor": 4,
+    "warning": 51
+  },
+  {
+    "arquivo": "piccolo/query/methods/objects.py",
+    "convention": 36,
+    "total": 63,
+    "warning": 24,
+    "refactor": 3
+  },
+  {
+    "arquivo": "piccolo/apps/migrations/auto/serialisation.py",
+    "convention": 27,
+    "total": 60,
+    "refactor": 6,
+    "warning": 27
+  },
+  {
+    "arquivo": "piccolo/query/methods/alter.py",
+    "convention": 25,
+    "total": 56,
+    "warning": 27,
+    "refactor": 4
+  },
+  {
+    "arquivo": "piccolo/query/base.py",
+    "convention": 21,
+    "total": 55,
+    "warning": 27,
+    "refactor": 7
+  },
+  {
+    "arquivo": "piccolo/engine/sqlite.py",
+    "convention": 26,
+    "total": 48,
+    "warning": 18,
+    "refactor": 4
+  },
+  {
+    "arquivo": "piccolo/utils/pydantic.py",
+    "convention": 3,
+    "total": 41,
+    "refactor": 9,
+    "warning": 29
+  },
+  {
+    "arquivo": "piccolo/apps/schema/commands/generate.py",
+    "convention": 27,
+    "total": 39,
+    "warning": 6,
+    "refactor": 6
+  },
+  {
+    "arquivo": "piccolo/apps/migrations/auto/schema_differ.py",
+    "convention": 30,
+    "total": 36,
+    "warning": 5,
+    "refactor": 1
+  },
+  {
+    "arquivo": "piccolo/columns/operators/comparison.py",
+    "convention": 18,
+    "total": 35,
+    "refactor": 17
+  },
+  {
+    "arquivo": "piccolo/engine/postgres.py",
+    "convention": 20,
+    "total": 30,
+    "warning": 8,
+    "refactor": 2
+  },
+  {
+    "arquivo": "piccolo/conf/apps.py",
+    "convention": 13,
+    "total": 26,
+    "refactor": 8,
+    "warning": 5
+  },
+  {
+    "arquivo": "piccolo/querystring.py",
+    "convention": 17,
+    "total": 25,
+    "error": 1,
+    "warning": 3,
+    "refactor": 4
+  },
+  {
+    "arquivo": "piccolo/apps/playground/commands/run.py",
+    "convention": 18,
+    "total": 25,
+    "warning": 5,
+    "refactor": 2
+  },
+  {
+    "arquivo": "piccolo/query/methods/insert.py",
+    "convention": 5,
+    "total": 24,
+    "warning": 19
+  },
+  {
+    "arquivo": "piccolo/columns/combination.py",
+    "convention": 14,
+    "total": 24,
+    "refactor": 3,
+    "warning": 7
+  },
+  {
+    "arquivo": "piccolo/engine/base.py",
+    "convention": 20,
+    "total": 22,
+    "warning": 2
+  },
+  {
+    "arquivo": "piccolo/testing/model_builder.py",
+    "convention": 2,
+    "total": 21,
+    "warning": 18,
+    "refactor": 1
+  },
+  {
+    "arquivo": "piccolo/query/methods/update.py",
+    "convention": 7,
+    "total": 21,
+    "warning": 14
+  },
+  {
+    "arquivo": "piccolo/query/functions/datetime.py",
+    "convention": 12,
+    "total": 17,
+    "refactor": 1,
+    "warning": 4
+  },
+  {
+    "arquivo": "piccolo/schema.py",
+    "convention": 16,
+    "total": 16
+  },
+  {
+    "arquivo": "piccolo/testing/random_builder.py",
+    "convention": 15,
+    "total": 15
+  },
+  {
+    "arquivo": "piccolo/columns/defaults/timestamp.py",
+    "convention": 12,
+    "total": 15,
+    "refactor": 3
+  },
+  {
+    "arquivo": "piccolo/query/constraints.py",
+    "warning": 12,
+    "total": 14,
+    "convention": 2
+  },
+  {
+    "arquivo": "piccolo/query/methods/delete.py",
+    "convention": 5,
+    "total": 14,
+    "warning": 9
+  },
+  {
+    "arquivo": "piccolo/apps/migrations/auto/schema_snapshot.py",
+    "convention": 4,
+    "total": 14,
+    "warning": 10
+  },
+  {
+    "arquivo": "piccolo/query/methods/refresh.py",
+    "convention": 3,
+    "total": 13,
+    "warning": 10
+  },
+  {
+    "arquivo": "piccolo/columns/reference.py",
+    "convention": 6,
+    "total": 13,
+    "refactor": 2,
+    "warning": 5
+  },
+  {
+    "arquivo": "piccolo/apps/migrations/commands/new.py",
+    "convention": 6,
+    "total": 13,
+    "warning": 6,
+    "refactor": 1
+  },
+  {
+    "arquivo": "piccolo/apps/user/commands/create.py",
+    "convention": 8,
+    "total": 13,
+    "refactor": 5
+  },
+  {
+    "arquivo": "piccolo/table_reflection.py",
+    "convention": 4,
+    "total": 12,
+    "refactor": 4,
+    "warning": 4
+  },
+  {
+    "arquivo": "piccolo/query/proxy.py",
+    "convention": 9,
+    "total": 12,
+    "refactor": 3
+  },
+  {
+    "arquivo": "piccolo/query/methods/create.py",
+    "convention": 2,
+    "total": 12,
+    "warning": 10
+  },
+  {
+    "arquivo": "piccolo/columns/operators/math.py",
+    "convention": 6,
+    "total": 11,
+    "refactor": 5
+  },
+  {
+    "arquivo": "piccolo/apps/schema/commands/graph.py",
+    "convention": 4,
+    "total": 11,
+    "refactor": 1,
+    "warning": 6
+  },
+  {
+    "arquivo": "piccolo/query/methods/create_index.py",
+    "convention": 4,
+    "total": 10,
+    "warning": 6
+  },
+  {
+    "arquivo": "piccolo/utils/encoding.py",
+    "convention": 3,
+    "total": 10,
+    "refactor": 1,
+    "error": 5,
+    "warning": 1
+  },
+  {
+    "arquivo": "piccolo/apps/tester/commands/run.py",
+    "convention": 8,
+    "total": 10,
+    "warning": 2
+  },
+  {
+    "arquivo": "piccolo/query/methods/count.py",
+    "convention": 4,
+    "total": 9,
+    "warning": 5
+  },
+  {
+    "arquivo": "piccolo/apps/migrations/auto/operations.py",
+    "convention": 9,
+    "total": 9
+  },
+  {
+    "arquivo": "piccolo/query/methods/exists.py",
+    "convention": 3,
+    "total": 8,
+    "warning": 5
+  },
+  {
+    "arquivo": "piccolo/query/methods/drop_index.py",
+    "convention": 3,
+    "total": 8,
+    "warning": 5
+  },
+  {
+    "arquivo": "piccolo/columns/defaults/time.py",
+    "convention": 8,
+    "total": 8
+  },
+  {
+    "arquivo": "piccolo/utils/sql_values.py",
+    "convention": 3,
+    "total": 8,
+    "refactor": 1,
+    "warning": 4
+  },
+  {
+    "arquivo": "piccolo/apps/migrations/commands/backwards.py",
+    "convention": 5,
+    "total": 8,
+    "refactor": 3
+  },
+  {
+    "arquivo": "piccolo/apps/migrations/commands/forwards.py",
+    "convention": 5,
+    "total": 8,
+    "refactor": 3
+  },
+  {
+    "arquivo": "piccolo/query/functions/array.py",
+    "convention": 7,
+    "total": 7
+  },
+  {
+    "arquivo": "piccolo/query/methods/raw.py",
+    "convention": 3,
+    "total": 7,
+    "warning": 4
+  },
+  {
+    "arquivo": "piccolo/query/methods/table_exists.py",
+    "convention": 2,
+    "total": 7,
+    "warning": 5
+  },
+  {
+    "arquivo": "piccolo/columns/defaults/interval.py",
+    "convention": 5,
+    "total": 7,
+    "refactor": 2
+  },
+  {
+    "arquivo": "piccolo/columns/defaults/date.py",
+    "convention": 7,
+    "total": 7
+  },
+  {
+    "arquivo": "piccolo/apps/app/commands/new.py",
+    "convention": 3,
+    "total": 7,
+    "refactor": 1,
+    "warning": 3
+  },
+  {
+    "arquivo": "piccolo/utils/objects.py",
+    "convention": 1,
+    "total": 6,
+    "warning": 5
+  },
+  {
+    "arquivo": "piccolo/utils/warnings.py",
+    "convention": 6,
+    "total": 6
+  },
+  {
+    "arquivo": "piccolo/apps/asgi/commands/new.py",
+    "convention": 5,
+    "total": 6,
+    "warning": 1
+  },
+  {
+    "arquivo": "piccolo/apps/migrations/auto/diffable_table.py",
+    "convention": 2,
+    "total": 6,
+    "warning": 4
+  },
+  {
+    "arquivo": "piccolo/apps/fixtures/commands/load.py",
+    "convention": 1,
+    "total": 6,
+    "refactor": 1,
+    "warning": 4
+  },
+  {
+    "arquivo": "piccolo/main.py",
+    "convention": 4,
+    "total": 5,
+    "warning": 1
+  },
+  {
+    "arquivo": "piccolo/query/functions/conditional.py",
+    "convention": 5,
+    "total": 5
+  },
+  {
+    "arquivo": "piccolo/query/functions/string.py",
+    "convention": 3,
+    "total": 5,
+    "warning": 2
+  },
+  {
+    "arquivo": "piccolo/query/operators/json.py",
+    "convention": 5,
+    "total": 5
+  },
+  {
+    "arquivo": "piccolo/columns/readable.py",
+    "convention": 4,
+    "total": 5,
+    "warning": 1
+  },
+  {
+    "arquivo": "piccolo/columns/indexes.py",
+    "convention": 5,
+    "total": 5
+  },
+  {
+    "arquivo": "piccolo/columns/defaults/base.py",
+    "convention": 5,
+    "total": 5
+  },
+  {
+    "arquivo": "piccolo/columns/operators/string.py",
+    "convention": 3,
+    "total": 5,
+    "refactor": 2
+  },
+  {
+    "arquivo": "piccolo/apps/migrations/commands/base.py",
+    "convention": 3,
+    "total": 5,
+    "refactor": 1,
+    "warning": 1
+  },
+  {
+    "arquivo": "piccolo/apps/user/tables.py",
+    "convention": 2,
+    "total": 5,
+    "refactor": 1,
+    "warning": 2
+  },
+  {
+    "arquivo": "piccolo/custom_types.py",
+    "convention": 3,
+    "total": 4,
+    "warning": 1
+  },
+  {
+    "arquivo": "piccolo/query/functions/aggregate.py",
+    "convention": 1,
+    "total": 4,
+    "error": 1,
+    "refactor": 2
+  },
+  {
+    "arquivo": "piccolo/query/methods/indexes.py",
+    "convention": 1,
+    "total": 4,
+    "warning": 3
+  },
+  {
+    "arquivo": "piccolo/columns/defaults/timestamptz.py",
+    "convention": 4,
+    "total": 4
+  },
+  {
+    "arquivo": "piccolo/utils/uuid.py",
+    "convention": 3,
+    "total": 4,
+    "error": 1
+  },
+  {
+    "arquivo": "piccolo/engine/cockroach.py",
+    "convention": 4,
+    "total": 4
+  },
+  {
+    "arquivo": "piccolo/apps/migrations/commands/check.py",
+    "convention": 4,
+    "total": 4
+  },
+  {
+    "arquivo": "piccolo/apps/user/commands/list.py",
+    "convention": 2,
+    "total": 4,
+    "warning": 2
+  },
+  {
+    "arquivo": "piccolo/query/functions/type_conversion.py",
+    "convention": 3,
+    "total": 3
+  },
+  {
+    "arquivo": "piccolo/columns/operators/base.py",
+    "convention": 2,
+    "total": 3,
+    "refactor": 1
+  },
+  {
+    "arquivo": "piccolo/utils/list.py",
+    "warning": 1,
+    "total": 3,
+    "convention": 2
+  },
+  {
+    "arquivo": "piccolo/apps/schema/commands/exceptions.py",
+    "convention": 1,
+    "total": 3,
+    "warning": 2
+  },
+  {
+    "arquivo": "piccolo/apps/migrations/commands/clean.py",
+    "convention": 3,
+    "total": 3
+  },
+  {
+    "arquivo": "piccolo/apps/project/commands/new.py",
+    "convention": 2,
+    "total": 3,
+    "warning": 1
+  },
+  {
+    "arquivo": "piccolo/apps/fixtures/commands/dump.py",
+    "convention": 1,
+    "total": 3,
+    "warning": 2
+  },
+  {
+    "arquivo": "piccolo/apps/user/piccolo_migrations/2019-11-14T21-52-21.py",
+    "convention": 3,
+    "total": 3
+  },
+  {
+    "arquivo": "piccolo/apps/user/piccolo_migrations/2021-04-30T16-14-15.py",
+    "convention": 3,
+    "total": 3
+  },
+  {
+    "arquivo": "piccolo/apps/user/piccolo_migrations/2020-06-11T21-38-55.py",
+    "convention": 3,
+    "total": 3
+  },
+  {
+    "arquivo": "piccolo/query/functions/base.py",
+    "convention": 2,
+    "total": 2
+  },
+  {
+    "arquivo": "piccolo/columns/defaults/uuid.py",
+    "convention": 2,
+    "total": 2
+  },
+  {
+    "arquivo": "piccolo/utils/sync.py",
+    "convention": 2,
+    "total": 2
+  },
+  {
+    "arquivo": "piccolo/utils/repr.py",
+    "convention": 2,
+    "total": 2
+  },
+  {
+    "arquivo": "piccolo/utils/lazy_loader.py",
+    "convention": 1,
+    "total": 2,
+    "refactor": 1
+  },
+  {
+    "arquivo": "piccolo/engine/finder.py",
+    "convention": 2,
+    "total": 2
+  },
+  {
+    "arquivo": "piccolo/engine/exceptions.py",
+    "convention": 2,
+    "total": 2
+  },
+  {
+    "arquivo": "piccolo/apps/shell/commands/run.py",
+    "convention": 2,
+    "total": 2
+  },
+  {
+    "arquivo": "piccolo/apps/migrations/tables.py",
+    "convention": 2,
+    "total": 2
+  },
+  {
+    "arquivo": "piccolo/apps/fixtures/commands/shared.py",
+    "convention": 2,
+    "total": 2
+  },
+  {
+    "arquivo": "piccolo/__init__.py",
+    "convention": 1,
+    "total": 1
+  },
+  {
+    "arquivo": "piccolo/testing/__init__.py",
+    "convention": 1,
+    "total": 1
+  },
+  {
+    "arquivo": "piccolo/testing/test_case.py",
+    "convention": 1,
+    "total": 1
+  },
+  {
+    "arquivo": "piccolo/query/__init__.py",
+    "convention": 1,
+    "total": 1
+  },
+  {
+    "arquivo": "piccolo/query/functions/__init__.py",
+    "convention": 1,
+    "total": 1
+  },
+  {
+    "arquivo": "piccolo/query/methods/__init__.py",
+    "convention": 1,
+    "total": 1
+  },
+  {
+    "arquivo": "piccolo/columns/choices.py",
+    "convention": 1,
+    "total": 1
+  },
+  {
+    "arquivo": "piccolo/columns/__init__.py",
+    "convention": 1,
+    "total": 1
+  },
+  {
+    "arquivo": "piccolo/columns/defaults/__init__.py",
+    "convention": 1,
+    "total": 1
+  },
+  {
+    "arquivo": "piccolo/columns/operators/__init__.py",
+    "convention": 1,
+    "total": 1
+  },
+  {
+    "arquivo": "piccolo/utils/naming.py",
+    "convention": 1,
+    "total": 1
+  },
+  {
+    "arquivo": "piccolo/utils/__init__.py",
+    "convention": 1,
+    "total": 1
+  },
+  {
+    "arquivo": "piccolo/utils/printing.py",
+    "convention": 1,
+    "total": 1
+  },
+  {
+    "arquivo": "piccolo/utils/dictionary.py",
+    "convention": 1,
+    "total": 1
+  },
+  {
+    "arquivo": "piccolo/engine/__init__.py",
+    "convention": 1,
+    "total": 1
+  },
+  {
+    "arquivo": "piccolo/apps/tester/piccolo_app.py",
+    "convention": 1,
+    "total": 1
+  },
+  {
+    "arquivo": "piccolo/apps/shell/piccolo_app.py",
+    "convention": 1,
+    "total": 1
+  },
+  {
+    "arquivo": "piccolo/apps/playground/piccolo_app.py",
+    "convention": 1,
+    "total": 1
+  },
+  {
+    "arquivo": "piccolo/apps/asgi/piccolo_app.py",
+    "convention": 1,
+    "total": 1
+  },
+  {
+    "arquivo": "piccolo/apps/schema/piccolo_app.py",
+    "convention": 1,
+    "total": 1
+  },
+  {
+    "arquivo": "piccolo/apps/migrations/piccolo_app.py",
+    "convention": 1,
+    "total": 1
+  },
+  {
+    "arquivo": "piccolo/apps/migrations/auto/__init__.py",
+    "convention": 1,
+    "total": 1
+  },
+  {
+    "arquivo": "piccolo/apps/migrations/auto/serialisation_legacy.py",
+    "convention": 1,
+    "total": 1
+  },
+  {
+    "arquivo": "piccolo/apps/project/piccolo_app.py",
+    "convention": 1,
+    "total": 1
+  },
+  {
+    "arquivo": "piccolo/apps/sql_shell/piccolo_app.py",
+    "convention": 1,
+    "total": 1
+  },
+  {
+    "arquivo": "piccolo/apps/sql_shell/commands/run.py",
+    "convention": 1,
+    "total": 1
+  },
+  {
+    "arquivo": "piccolo/apps/app/piccolo_app.py",
+    "convention": 1,
+    "total": 1
+  },
+  {
+    "arquivo": "piccolo/apps/app/commands/show_all.py",
+    "convention": 1,
+    "total": 1
+  },
+  {
+    "arquivo": "piccolo/apps/meta/piccolo_app.py",
+    "convention": 1,
+    "total": 1
+  },
+  {
+    "arquivo": "piccolo/apps/meta/commands/version.py",
+    "convention": 1,
+    "total": 1
+  },
+  {
+    "arquivo": "piccolo/apps/fixtures/piccolo_app.py",
+    "convention": 1,
+    "total": 1
+  },
+  {
+    "arquivo": "piccolo/apps/user/piccolo_app.py",
+    "convention": 1,
+    "total": 1
+  },
+  {
+    "arquivo": "piccolo/apps/user/commands/change_permissions.py",
+    "convention": 1,
+    "total": 1
+  }
+]

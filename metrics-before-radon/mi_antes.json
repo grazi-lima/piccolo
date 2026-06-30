@@ -1,0 +1,658 @@
+{
+  "piccolo/table.py": {
+    "mi": 22.86212854221711,
+    "rank": "A"
+  },
+  "piccolo/schema.py": {
+    "mi": 61.62775811357664,
+    "rank": "A"
+  },
+  "piccolo/table_reflection.py": {
+    "mi": 65.74458655596942,
+    "rank": "A"
+  },
+  "piccolo/querystring.py": {
+    "mi": 50.833608299809335,
+    "rank": "A"
+  },
+  "piccolo/__init__.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/main.py": {
+    "mi": 69.69455452441902,
+    "rank": "A"
+  },
+  "piccolo/custom_types.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/testing/model_builder.py": {
+    "mi": 65.7201470769582,
+    "rank": "A"
+  },
+  "piccolo/testing/__init__.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/testing/test_case.py": {
+    "mi": 83.49853670878083,
+    "rank": "A"
+  },
+  "piccolo/testing/random_builder.py": {
+    "mi": 57.96140397693707,
+    "rank": "A"
+  },
+  "piccolo/query/constraints.py": {
+    "mi": 77.28803835287083,
+    "rank": "A"
+  },
+  "piccolo/query/base.py": {
+    "mi": 44.793180137376204,
+    "rank": "A"
+  },
+  "piccolo/query/__init__.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/query/mixins.py": {
+    "mi": 24.609362924769428,
+    "rank": "A"
+  },
+  "piccolo/query/proxy.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/query/functions/datetime.py": {
+    "mi": 70.7353128762763,
+    "rank": "A"
+  },
+  "piccolo/query/functions/conditional.py": {
+    "mi": 77.75667077521486,
+    "rank": "A"
+  },
+  "piccolo/query/functions/base.py": {
+    "mi": 74.03933453534945,
+    "rank": "A"
+  },
+  "piccolo/query/functions/math.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/query/functions/__init__.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/query/functions/string.py": {
+    "mi": 77.76097902569494,
+    "rank": "A"
+  },
+  "piccolo/query/functions/aggregate.py": {
+    "mi": 63.61033534835016,
+    "rank": "A"
+  },
+  "piccolo/query/functions/array.py": {
+    "mi": 77.16177304396722,
+    "rank": "A"
+  },
+  "piccolo/query/functions/type_conversion.py": {
+    "mi": 85.98093810866578,
+    "rank": "A"
+  },
+  "piccolo/query/methods/alter.py": {
+    "mi": 42.870569375518315,
+    "rank": "A"
+  },
+  "piccolo/query/methods/select.py": {
+    "mi": 28.349795738049526,
+    "rank": "A"
+  },
+  "piccolo/query/methods/indexes.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/query/methods/refresh.py": {
+    "mi": 70.55350618775638,
+    "rank": "A"
+  },
+  "piccolo/query/methods/raw.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/query/methods/exists.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/query/methods/create.py": {
+    "mi": 75.98751781005195,
+    "rank": "A"
+  },
+  "piccolo/query/methods/table_exists.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/query/methods/__init__.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/query/methods/count.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/query/methods/create_index.py": {
+    "mi": 61.419098460683045,
+    "rank": "A"
+  },
+  "piccolo/query/methods/objects.py": {
+    "mi": 45.16444547874351,
+    "rank": "A"
+  },
+  "piccolo/query/methods/update.py": {
+    "mi": 68.59734027207972,
+    "rank": "A"
+  },
+  "piccolo/query/methods/delete.py": {
+    "mi": 71.87009376047587,
+    "rank": "A"
+  },
+  "piccolo/query/methods/insert.py": {
+    "mi": 57.642099468346586,
+    "rank": "A"
+  },
+  "piccolo/query/methods/drop_index.py": {
+    "mi": 74.54723541401242,
+    "rank": "A"
+  },
+  "piccolo/query/operators/__init__.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/query/operators/json.py": {
+    "mi": 90.39366603084262,
+    "rank": "A"
+  },
+  "piccolo/columns/m2m.py": {
+    "mi": 47.23846599492673,
+    "rank": "A"
+  },
+  "piccolo/columns/readable.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/columns/indexes.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/columns/reference.py": {
+    "mi": 69.00412408392332,
+    "rank": "A"
+  },
+  "piccolo/columns/base.py": {
+    "mi": 30.30638171790288,
+    "rank": "A"
+  },
+  "piccolo/columns/choices.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/columns/__init__.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/columns/combination.py": {
+    "mi": 62.691040007693346,
+    "rank": "A"
+  },
+  "piccolo/columns/column_types.py": {
+    "mi": 0.0,
+    "rank": "C"
+  },
+  "piccolo/columns/defaults/interval.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/columns/defaults/uuid.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/columns/defaults/base.py": {
+    "mi": 80.58180223782755,
+    "rank": "A"
+  },
+  "piccolo/columns/defaults/__init__.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/columns/defaults/time.py": {
+    "mi": 54.477306208784604,
+    "rank": "A"
+  },
+  "piccolo/columns/defaults/timestamptz.py": {
+    "mi": 70.76474220900673,
+    "rank": "A"
+  },
+  "piccolo/columns/defaults/date.py": {
+    "mi": 78.23946755072019,
+    "rank": "A"
+  },
+  "piccolo/columns/defaults/timestamp.py": {
+    "mi": 67.65645379492595,
+    "rank": "A"
+  },
+  "piccolo/columns/operators/comparison.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/columns/operators/base.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/columns/operators/math.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/columns/operators/__init__.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/columns/operators/string.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/utils/naming.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/utils/sql_values.py": {
+    "mi": 77.94171419626149,
+    "rank": "A"
+  },
+  "piccolo/utils/sync.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/utils/list.py": {
+    "mi": 83.50708103301066,
+    "rank": "A"
+  },
+  "piccolo/utils/uuid.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/utils/repr.py": {
+    "mi": 99.13839414591452,
+    "rank": "A"
+  },
+  "piccolo/utils/__init__.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/utils/pydantic.py": {
+    "mi": 46.414241559315265,
+    "rank": "A"
+  },
+  "piccolo/utils/objects.py": {
+    "mi": 86.37057312837906,
+    "rank": "A"
+  },
+  "piccolo/utils/printing.py": {
+    "mi": 80.29217054584274,
+    "rank": "A"
+  },
+  "piccolo/utils/dictionary.py": {
+    "mi": 86.13562608564412,
+    "rank": "A"
+  },
+  "piccolo/utils/encoding.py": {
+    "mi": 89.70428400372151,
+    "rank": "A"
+  },
+  "piccolo/utils/lazy_loader.py": {
+    "mi": 86.03251917495437,
+    "rank": "A"
+  },
+  "piccolo/utils/warnings.py": {
+    "mi": 94.37812386530582,
+    "rank": "A"
+  },
+  "piccolo/conf/__init__.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/conf/apps.py": {
+    "mi": 39.09445168762537,
+    "rank": "A"
+  },
+  "piccolo/engine/finder.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/engine/exceptions.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/engine/base.py": {
+    "mi": 57.28201324294103,
+    "rank": "A"
+  },
+  "piccolo/engine/postgres.py": {
+    "mi": 40.71151576824956,
+    "rank": "A"
+  },
+  "piccolo/engine/__init__.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/engine/sqlite.py": {
+    "mi": 41.91776134337377,
+    "rank": "A"
+  },
+  "piccolo/engine/cockroach.py": {
+    "mi": 89.46883863807737,
+    "rank": "A"
+  },
+  "piccolo/apps/__init__.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/apps/tester/__init__.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/apps/tester/piccolo_app.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/apps/tester/commands/__init__.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/apps/tester/commands/run.py": {
+    "mi": 88.82136068543052,
+    "rank": "A"
+  },
+  "piccolo/apps/shell/__init__.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/apps/shell/piccolo_app.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/apps/shell/commands/__init__.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/apps/shell/commands/run.py": {
+    "mi": 81.4479257576975,
+    "rank": "A"
+  },
+  "piccolo/apps/playground/__init__.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/apps/playground/piccolo_app.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/apps/playground/commands/__init__.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/apps/playground/commands/run.py": {
+    "mi": 47.939467224779385,
+    "rank": "A"
+  },
+  "piccolo/apps/asgi/__init__.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/apps/asgi/piccolo_app.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/apps/asgi/commands/new.py": {
+    "mi": 61.27183774423992,
+    "rank": "A"
+  },
+  "piccolo/apps/asgi/commands/__init__.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/apps/schema/__init__.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/apps/schema/piccolo_app.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/apps/schema/commands/graph.py": {
+    "mi": 74.46582098440672,
+    "rank": "A"
+  },
+  "piccolo/apps/schema/commands/exceptions.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/apps/schema/commands/__init__.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/apps/schema/commands/generate.py": {
+    "mi": 31.025865572526985,
+    "rank": "A"
+  },
+  "piccolo/apps/migrations/__init__.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/apps/migrations/tables.py": {
+    "mi": 90.32367351236519,
+    "rank": "A"
+  },
+  "piccolo/apps/migrations/piccolo_app.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/apps/migrations/commands/new.py": {
+    "mi": 64.69370402443028,
+    "rank": "A"
+  },
+  "piccolo/apps/migrations/commands/base.py": {
+    "mi": 69.08045141983763,
+    "rank": "A"
+  },
+  "piccolo/apps/migrations/commands/backwards.py": {
+    "mi": 60.121619188090555,
+    "rank": "A"
+  },
+  "piccolo/apps/migrations/commands/__init__.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/apps/migrations/commands/clean.py": {
+    "mi": 80.19096404033817,
+    "rank": "A"
+  },
+  "piccolo/apps/migrations/commands/forwards.py": {
+    "mi": 61.70727640667407,
+    "rank": "A"
+  },
+  "piccolo/apps/migrations/commands/check.py": {
+    "mi": 71.72396998741459,
+    "rank": "A"
+  },
+  "piccolo/apps/migrations/auto/schema_differ.py": {
+    "mi": 31.798045118172688,
+    "rank": "A"
+  },
+  "piccolo/apps/migrations/auto/diffable_table.py": {
+    "mi": 63.097855509421386,
+    "rank": "A"
+  },
+  "piccolo/apps/migrations/auto/__init__.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/apps/migrations/auto/schema_snapshot.py": {
+    "mi": 64.12719628553013,
+    "rank": "A"
+  },
+  "piccolo/apps/migrations/auto/serialisation_legacy.py": {
+    "mi": 69.16399949777926,
+    "rank": "A"
+  },
+  "piccolo/apps/migrations/auto/operations.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/apps/migrations/auto/serialisation.py": {
+    "mi": 29.16812829456535,
+    "rank": "A"
+  },
+  "piccolo/apps/migrations/auto/migration_manager.py": {
+    "mi": 21.39915006052733,
+    "rank": "A"
+  },
+  "piccolo/apps/project/__init__.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/apps/project/piccolo_app.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/apps/project/commands/new.py": {
+    "mi": 92.74151343562907,
+    "rank": "A"
+  },
+  "piccolo/apps/project/commands/__init__.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/apps/sql_shell/__init__.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/apps/sql_shell/piccolo_app.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/apps/sql_shell/commands/__init__.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/apps/sql_shell/commands/run.py": {
+    "mi": 70.43344441858187,
+    "rank": "A"
+  },
+  "piccolo/apps/app/__init__.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/apps/app/piccolo_app.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/apps/app/commands/new.py": {
+    "mi": 80.80084915946045,
+    "rank": "A"
+  },
+  "piccolo/apps/app/commands/__init__.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/apps/app/commands/show_all.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/apps/meta/__init__.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/apps/meta/piccolo_app.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/apps/meta/commands/__init__.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/apps/meta/commands/version.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/apps/fixtures/__init__.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/apps/fixtures/piccolo_app.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/apps/fixtures/commands/dump.py": {
+    "mi": 75.96434202181436,
+    "rank": "A"
+  },
+  "piccolo/apps/fixtures/commands/shared.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/apps/fixtures/commands/__init__.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/apps/fixtures/commands/load.py": {
+    "mi": 78.94669569286492,
+    "rank": "A"
+  },
+  "piccolo/apps/user/__init__.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/apps/user/tables.py": {
+    "mi": 59.60751779298822,
+    "rank": "A"
+  },
+  "piccolo/apps/user/piccolo_app.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/apps/user/piccolo_migrations/__init__.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/apps/user/piccolo_migrations/2019-11-14T21-52-21.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/apps/user/piccolo_migrations/2021-04-30T16-14-15.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/apps/user/piccolo_migrations/2020-06-11T21-38-55.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/apps/user/commands/list.py": {
+    "mi": 78.78913096738809,
+    "rank": "A"
+  },
+  "piccolo/apps/user/commands/change_permissions.py": {
+    "mi": 84.57020129256601,
+    "rank": "A"
+  },
+  "piccolo/apps/user/commands/create.py": {
+    "mi": 57.25775319132038,
+    "rank": "A"
+  },
+  "piccolo/apps/user/commands/__init__.py": {
+    "mi": 100.0,
+    "rank": "A"
+  },
+  "piccolo/apps/user/commands/change_password.py": {
+    "mi": 92.57852468583042,
+    "rank": "A"
+  }
+}

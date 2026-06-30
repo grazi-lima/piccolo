@@ -1,0 +1,82 @@
+[
+  {
+    "simbolo": "cyclic-import",
+    "ocorrencias": 92
+  },
+  {
+    "simbolo": "no-else-return",
+    "ocorrencias": 88
+  },
+  {
+    "simbolo": "too-few-public-methods",
+    "ocorrencias": 37
+  },
+  {
+    "simbolo": "too-many-arguments",
+    "ocorrencias": 18
+  },
+  {
+    "simbolo": "duplicate-code",
+    "ocorrencias": 18
+  },
+  {
+    "simbolo": "too-many-positional-arguments",
+    "ocorrencias": 17
+  },
+  {
+    "simbolo": "too-many-locals",
+    "ocorrencias": 10
+  },
+  {
+    "simbolo": "no-else-raise",
+    "ocorrencias": 7
+  },
+  {
+    "simbolo": "too-many-instance-attributes",
+    "ocorrencias": 3
+  },
+  {
+    "simbolo": "too-many-public-methods",
+    "ocorrencias": 3
+  },
+  {
+    "simbolo": "too-many-return-statements",
+    "ocorrencias": 3
+  },
+  {
+    "simbolo": "no-else-continue",
+    "ocorrencias": 3
+  },
+  {
+    "simbolo": "no-else-break",
+    "ocorrencias": 3
+  },
+  {
+    "simbolo": "useless-object-inheritance",
+    "ocorrencias": 2
+  },
+  {
+    "simbolo": "consider-using-in",
+    "ocorrencias": 2
+  },
+  {
+    "simbolo": "too-many-branches",
+    "ocorrencias": 1
+  },
+  {
+    "simbolo": "too-many-nested-blocks",
+    "ocorrencias": 1
+  },
+  {
+    "simbolo": "inconsistent-return-statements",
+    "ocorrencias": 1
+  },
+  {
+    "simbolo": "redefined-argument-from-local",
+    "ocorrencias": 1
+  },
+  {
+    "simbolo": "use-dict-literal",
+    "ocorrencias": 1
+  }
+]

@@ -1,0 +1,1478 @@
+{
+  "piccolo/table.py": {
+    "loc": 1756,
+    "lloc": 581,
+    "sloc": 817,
+    "comments": 60,
+    "multi": 522,
+    "blank": 365,
+    "single_comments": 52
+  },
+  "piccolo/schema.py": {
+    "loc": 316,
+    "lloc": 119,
+    "sloc": 190,
+    "comments": 0,
+    "multi": 61,
+    "blank": 65,
+    "single_comments": 0
+  },
+  "piccolo/table_reflection.py": {
+    "loc": 239,
+    "lloc": 108,
+    "sloc": 120,
+    "comments": 3,
+    "multi": 71,
+    "blank": 47,
+    "single_comments": 1
+  },
+  "piccolo/querystring.py": {
+    "loc": 331,
+    "lloc": 174,
+    "sloc": 213,
+    "comments": 9,
+    "multi": 46,
+    "blank": 66,
+    "single_comments": 6
+  },
+  "piccolo/__init__.py": {
+    "loc": 1,
+    "lloc": 1,
+    "sloc": 1,
+    "comments": 0,
+    "multi": 0,
+    "blank": 0,
+    "single_comments": 0
+  },
+  "piccolo/main.py": {
+    "loc": 150,
+    "lloc": 62,
+    "sloc": 108,
+    "comments": 15,
+    "multi": 3,
+    "blank": 25,
+    "single_comments": 14
+  },
+  "piccolo/custom_types.py": {
+    "loc": 43,
+    "lloc": 17,
+    "sloc": 29,
+    "comments": 6,
+    "multi": 0,
+    "blank": 11,
+    "single_comments": 3
+  },
+  "piccolo/testing/model_builder.py": {
+    "loc": 199,
+    "lloc": 82,
+    "sloc": 130,
+    "comments": 5,
+    "multi": 36,
+    "blank": 29,
+    "single_comments": 4
+  },
+  "piccolo/testing/__init__.py": {
+    "loc": 3,
+    "lloc": 2,
+    "sloc": 2,
+    "comments": 0,
+    "multi": 0,
+    "blank": 1,
+    "single_comments": 0
+  },
+  "piccolo/testing/test_case.py": {
+    "loc": 125,
+    "lloc": 36,
+    "sloc": 47,
+    "comments": 11,
+    "multi": 32,
+    "blank": 37,
+    "single_comments": 9
+  },
+  "piccolo/testing/random_builder.py": {
+    "loc": 95,
+    "lloc": 52,
+    "sloc": 78,
+    "comments": 3,
+    "multi": 0,
+    "blank": 14,
+    "single_comments": 3
+  },
+  "piccolo/query/constraints.py": {
+    "loc": 96,
+    "lloc": 30,
+    "sloc": 69,
+    "comments": 5,
+    "multi": 6,
+    "blank": 16,
+    "single_comments": 5
+  },
+  "piccolo/query/base.py": {
+    "loc": 466,
+    "lloc": 247,
+    "sloc": 299,
+    "comments": 15,
+    "multi": 66,
+    "blank": 91,
+    "single_comments": 10
+  },
+  "piccolo/query/__init__.py": {
+    "loc": 45,
+    "lloc": 7,
+    "sloc": 43,
+    "comments": 0,
+    "multi": 0,
+    "blank": 2,
+    "single_comments": 0
+  },
+  "piccolo/query/mixins.py": {
+    "loc": 874,
+    "lloc": 521,
+    "sloc": 544,
+    "comments": 7,
+    "multi": 115,
+    "blank": 210,
+    "single_comments": 5
+  },
+  "piccolo/query/proxy.py": {
+    "loc": 69,
+    "lloc": 40,
+    "sloc": 43,
+    "comments": 1,
+    "multi": 8,
+    "blank": 17,
+    "single_comments": 1
+  },
+  "piccolo/query/functions/datetime.py": {
+    "loc": 340,
+    "lloc": 65,
+    "sloc": 222,
+    "comments": 11,
+    "multi": 50,
+    "blank": 58,
+    "single_comments": 10
+  },
+  "piccolo/query/functions/conditional.py": {
+    "loc": 122,
+    "lloc": 28,
+    "sloc": 43,
+    "comments": 5,
+    "multi": 44,
+    "blank": 30,
+    "single_comments": 5
+  },
+  "piccolo/query/functions/base.py": {
+    "loc": 21,
+    "lloc": 9,
+    "sloc": 16,
+    "comments": 0,
+    "multi": 0,
+    "blank": 5,
+    "single_comments": 0
+  },
+  "piccolo/query/functions/math.py": {
+    "loc": 48,
+    "lloc": 15,
+    "sloc": 15,
+    "comments": 0,
+    "multi": 16,
+    "blank": 17,
+    "single_comments": 0
+  },
+  "piccolo/query/functions/__init__.py": {
+    "loc": 68,
+    "lloc": 8,
+    "sloc": 67,
+    "comments": 0,
+    "multi": 0,
+    "blank": 1,
+    "single_comments": 0
+  },
+  "piccolo/query/functions/string.py": {
+    "loc": 163,
+    "lloc": 48,
+    "sloc": 72,
+    "comments": 2,
+    "multi": 43,
+    "blank": 46,
+    "single_comments": 2
+  },
+  "piccolo/query/functions/aggregate.py": {
+    "loc": 180,
+    "lloc": 36,
+    "sloc": 43,
+    "comments": 2,
+    "multi": 82,
+    "blank": 53,
+    "single_comments": 2
+  },
+  "piccolo/query/functions/array.py": {
+    "loc": 151,
+    "lloc": 56,
+    "sloc": 76,
+    "comments": 0,
+    "multi": 42,
+    "blank": 33,
+    "single_comments": 0
+  },
+  "piccolo/query/functions/type_conversion.py": {
+    "loc": 97,
+    "lloc": 23,
+    "sloc": 38,
+    "comments": 7,
+    "multi": 27,
+    "blank": 25,
+    "single_comments": 7
+  },
+  "piccolo/query/methods/alter.py": {
+    "loc": 664,
+    "lloc": 353,
+    "sloc": 428,
+    "comments": 7,
+    "multi": 88,
+    "blank": 145,
+    "single_comments": 3
+  },
+  "piccolo/query/methods/select.py": {
+    "loc": 697,
+    "lloc": 317,
+    "sloc": 533,
+    "comments": 39,
+    "multi": 29,
+    "blank": 106,
+    "single_comments": 29
+  },
+  "piccolo/query/methods/indexes.py": {
+    "loc": 34,
+    "lloc": 18,
+    "sloc": 23,
+    "comments": 0,
+    "multi": 3,
+    "blank": 8,
+    "single_comments": 0
+  },
+  "piccolo/query/methods/refresh.py": {
+    "loc": 212,
+    "lloc": 69,
+    "sloc": 122,
+    "comments": 16,
+    "multi": 44,
+    "blank": 42,
+    "single_comments": 4
+  },
+  "piccolo/query/methods/raw.py": {
+    "loc": 40,
+    "lloc": 22,
+    "sloc": 32,
+    "comments": 1,
+    "multi": 0,
+    "blank": 8,
+    "single_comments": 0
+  },
+  "piccolo/query/methods/exists.py": {
+    "loc": 39,
+    "lloc": 24,
+    "sloc": 28,
+    "comments": 1,
+    "multi": 0,
+    "blank": 10,
+    "single_comments": 1
+  },
+  "piccolo/query/methods/create.py": {
+    "loc": 91,
+    "lloc": 38,
+    "sloc": 60,
+    "comments": 1,
+    "multi": 15,
+    "blank": 16,
+    "single_comments": 0
+  },
+  "piccolo/query/methods/table_exists.py": {
+    "loc": 45,
+    "lloc": 23,
+    "sloc": 33,
+    "comments": 0,
+    "multi": 0,
+    "blank": 12,
+    "single_comments": 0
+  },
+  "piccolo/query/methods/__init__.py": {
+    "loc": 31,
+    "lloc": 15,
+    "sloc": 30,
+    "comments": 0,
+    "multi": 0,
+    "blank": 1,
+    "single_comments": 0
+  },
+  "piccolo/query/methods/count.py": {
+    "loc": 62,
+    "lloc": 34,
+    "sloc": 41,
+    "comments": 4,
+    "multi": 0,
+    "blank": 18,
+    "single_comments": 3
+  },
+  "piccolo/query/methods/create_index.py": {
+    "loc": 76,
+    "lloc": 44,
+    "sloc": 64,
+    "comments": 1,
+    "multi": 0,
+    "blank": 12,
+    "single_comments": 0
+  },
+  "piccolo/query/methods/objects.py": {
+    "loc": 519,
+    "lloc": 213,
+    "sloc": 380,
+    "comments": 23,
+    "multi": 27,
+    "blank": 90,
+    "single_comments": 22
+  },
+  "piccolo/query/methods/update.py": {
+    "loc": 118,
+    "lloc": 51,
+    "sloc": 84,
+    "comments": 8,
+    "multi": 4,
+    "blank": 24,
+    "single_comments": 6
+  },
+  "piccolo/query/methods/delete.py": {
+    "loc": 78,
+    "lloc": 40,
+    "sloc": 55,
+    "comments": 1,
+    "multi": 4,
+    "blank": 19,
+    "single_comments": 0
+  },
+  "piccolo/query/methods/insert.py": {
+    "loc": 152,
+    "lloc": 55,
+    "sloc": 125,
+    "comments": 4,
+    "multi": 3,
+    "blank": 21,
+    "single_comments": 3
+  },
+  "piccolo/query/methods/drop_index.py": {
+    "loc": 39,
+    "lloc": 24,
+    "sloc": 32,
+    "comments": 1,
+    "multi": 0,
+    "blank": 7,
+    "single_comments": 0
+  },
+  "piccolo/query/operators/__init__.py": {
+    "loc": 0,
+    "lloc": 0,
+    "sloc": 0,
+    "comments": 0,
+    "multi": 0,
+    "blank": 0,
+    "single_comments": 0
+  },
+  "piccolo/query/operators/json.py": {
+    "loc": 111,
+    "lloc": 37,
+    "sloc": 50,
+    "comments": 4,
+    "multi": 32,
+    "blank": 27,
+    "single_comments": 2
+  },
+  "piccolo/columns/m2m.py": {
+    "loc": 439,
+    "lloc": 202,
+    "sloc": 303,
+    "comments": 8,
+    "multi": 59,
+    "blank": 73,
+    "single_comments": 4
+  },
+  "piccolo/columns/readable.py": {
+    "loc": 57,
+    "lloc": 35,
+    "sloc": 40,
+    "comments": 1,
+    "multi": 5,
+    "blank": 12,
+    "single_comments": 0
+  },
+  "piccolo/columns/indexes.py": {
+    "loc": 19,
+    "lloc": 11,
+    "sloc": 10,
+    "comments": 0,
+    "multi": 4,
+    "blank": 5,
+    "single_comments": 0
+  },
+  "piccolo/columns/reference.py": {
+    "loc": 114,
+    "lloc": 55,
+    "sloc": 73,
+    "comments": 1,
+    "multi": 18,
+    "blank": 23,
+    "single_comments": 0
+  },
+  "piccolo/columns/base.py": {
+    "loc": 1050,
+    "lloc": 460,
+    "sloc": 596,
+    "comments": 39,
+    "multi": 230,
+    "blank": 191,
+    "single_comments": 33
+  },
+  "piccolo/columns/choices.py": {
+    "loc": 33,
+    "lloc": 10,
+    "sloc": 7,
+    "comments": 0,
+    "multi": 15,
+    "blank": 11,
+    "single_comments": 0
+  },
+  "piccolo/columns/__init__.py": {
+    "loc": 75,
+    "lloc": 6,
+    "sloc": 74,
+    "comments": 0,
+    "multi": 0,
+    "blank": 1,
+    "single_comments": 0
+  },
+  "piccolo/columns/combination.py": {
+    "loc": 256,
+    "lloc": 109,
+    "sloc": 136,
+    "comments": 4,
+    "multi": 45,
+    "blank": 74,
+    "single_comments": 1
+  },
+  "piccolo/columns/column_types.py": {
+    "loc": 3026,
+    "lloc": 1040,
+    "sloc": 1440,
+    "comments": 144,
+    "multi": 673,
+    "blank": 785,
+    "single_comments": 128
+  },
+  "piccolo/columns/defaults/interval.py": {
+    "loc": 91,
+    "lloc": 35,
+    "sloc": 75,
+    "comments": 1,
+    "multi": 0,
+    "blank": 15,
+    "single_comments": 1
+  },
+  "piccolo/columns/defaults/uuid.py": {
+    "loc": 93,
+    "lloc": 37,
+    "sloc": 48,
+    "comments": 1,
+    "multi": 22,
+    "blank": 23,
+    "single_comments": 0
+  },
+  "piccolo/columns/defaults/base.py": {
+    "loc": 73,
+    "lloc": 41,
+    "sloc": 39,
+    "comments": 0,
+    "multi": 14,
+    "blank": 20,
+    "single_comments": 0
+  },
+  "piccolo/columns/defaults/__init__.py": {
+    "loc": 7,
+    "lloc": 7,
+    "sloc": 7,
+    "comments": 7,
+    "multi": 0,
+    "blank": 0,
+    "single_comments": 0
+  },
+  "piccolo/columns/defaults/time.py": {
+    "loc": 104,
+    "lloc": 59,
+    "sloc": 80,
+    "comments": 0,
+    "multi": 0,
+    "blank": 24,
+    "single_comments": 0
+  },
+  "piccolo/columns/defaults/timestamptz.py": {
+    "loc": 92,
+    "lloc": 34,
+    "sloc": 72,
+    "comments": 1,
+    "multi": 3,
+    "blank": 17,
+    "single_comments": 0
+  },
+  "piccolo/columns/defaults/date.py": {
+    "loc": 117,
+    "lloc": 58,
+    "sloc": 73,
+    "comments": 1,
+    "multi": 14,
+    "blank": 29,
+    "single_comments": 1
+  },
+  "piccolo/columns/defaults/timestamp.py": {
+    "loc": 160,
+    "lloc": 69,
+    "sloc": 122,
+    "comments": 4,
+    "multi": 4,
+    "blank": 31,
+    "single_comments": 3
+  },
+  "piccolo/columns/operators/comparison.py": {
+    "loc": 70,
+    "lloc": 35,
+    "sloc": 35,
+    "comments": 1,
+    "multi": 0,
+    "blank": 34,
+    "single_comments": 1
+  },
+  "piccolo/columns/operators/base.py": {
+    "loc": 2,
+    "lloc": 2,
+    "sloc": 2,
+    "comments": 0,
+    "multi": 0,
+    "blank": 0,
+    "single_comments": 0
+  },
+  "piccolo/columns/operators/math.py": {
+    "loc": 21,
+    "lloc": 11,
+    "sloc": 11,
+    "comments": 0,
+    "multi": 0,
+    "blank": 10,
+    "single_comments": 0
+  },
+  "piccolo/columns/operators/__init__.py": {
+    "loc": 19,
+    "lloc": 3,
+    "sloc": 19,
+    "comments": 0,
+    "multi": 0,
+    "blank": 0,
+    "single_comments": 0
+  },
+  "piccolo/columns/operators/string.py": {
+    "loc": 9,
+    "lloc": 5,
+    "sloc": 5,
+    "comments": 0,
+    "multi": 0,
+    "blank": 4,
+    "single_comments": 0
+  },
+  "piccolo/utils/naming.py": {
+    "loc": 15,
+    "lloc": 7,
+    "sloc": 5,
+    "comments": 0,
+    "multi": 6,
+    "blank": 4,
+    "single_comments": 0
+  },
+  "piccolo/utils/sql_values.py": {
+    "loc": 50,
+    "lloc": 30,
+    "sloc": 38,
+    "comments": 2,
+    "multi": 5,
+    "blank": 6,
+    "single_comments": 1
+  },
+  "piccolo/utils/sync.py": {
+    "loc": 29,
+    "lloc": 15,
+    "sloc": 15,
+    "comments": 2,
+    "multi": 8,
+    "blank": 4,
+    "single_comments": 2
+  },
+  "piccolo/utils/list.py": {
+    "loc": 60,
+    "lloc": 23,
+    "sloc": 24,
+    "comments": 3,
+    "multi": 17,
+    "blank": 17,
+    "single_comments": 2
+  },
+  "piccolo/utils/uuid.py": {
+    "loc": 4,
+    "lloc": 3,
+    "sloc": 3,
+    "comments": 0,
+    "multi": 0,
+    "blank": 1,
+    "single_comments": 0
+  },
+  "piccolo/utils/repr.py": {
+    "loc": 26,
+    "lloc": 10,
+    "sloc": 17,
+    "comments": 0,
+    "multi": 5,
+    "blank": 4,
+    "single_comments": 0
+  },
+  "piccolo/utils/__init__.py": {
+    "loc": 1,
+    "lloc": 1,
+    "sloc": 1,
+    "comments": 0,
+    "multi": 0,
+    "blank": 0,
+    "single_comments": 0
+  },
+  "piccolo/utils/pydantic.py": {
+    "loc": 366,
+    "lloc": 133,
+    "sloc": 290,
+    "comments": 14,
+    "multi": 14,
+    "blank": 53,
+    "single_comments": 9
+  },
+  "piccolo/utils/objects.py": {
+    "loc": 79,
+    "lloc": 26,
+    "sloc": 41,
+    "comments": 3,
+    "multi": 20,
+    "blank": 16,
+    "single_comments": 2
+  },
+  "piccolo/utils/printing.py": {
+    "loc": 57,
+    "lloc": 32,
+    "sloc": 30,
+    "comments": 0,
+    "multi": 13,
+    "blank": 14,
+    "single_comments": 0
+  },
+  "piccolo/utils/dictionary.py": {
+    "loc": 58,
+    "lloc": 28,
+    "sloc": 25,
+    "comments": 9,
+    "multi": 11,
+    "blank": 13,
+    "single_comments": 9
+  },
+  "piccolo/utils/encoding.py": {
+    "loc": 74,
+    "lloc": 29,
+    "sloc": 32,
+    "comments": 4,
+    "multi": 24,
+    "blank": 18,
+    "single_comments": 0
+  },
+  "piccolo/utils/lazy_loader.py": {
+    "loc": 57,
+    "lloc": 29,
+    "sloc": 34,
+    "comments": 7,
+    "multi": 4,
+    "blank": 12,
+    "single_comments": 7
+  },
+  "piccolo/utils/warnings.py": {
+    "loc": 43,
+    "lloc": 15,
+    "sloc": 19,
+    "comments": 1,
+    "multi": 14,
+    "blank": 10,
+    "single_comments": 0
+  },
+  "piccolo/conf/__init__.py": {
+    "loc": 0,
+    "lloc": 0,
+    "sloc": 0,
+    "comments": 0,
+    "multi": 0,
+    "blank": 0,
+    "single_comments": 0
+  },
+  "piccolo/conf/apps.py": {
+    "loc": 683,
+    "lloc": 313,
+    "sloc": 418,
+    "comments": 9,
+    "multi": 134,
+    "blank": 124,
+    "single_comments": 7
+  },
+  "piccolo/engine/finder.py": {
+    "loc": 19,
+    "lloc": 7,
+    "sloc": 6,
+    "comments": 0,
+    "multi": 6,
+    "blank": 7,
+    "single_comments": 0
+  },
+  "piccolo/engine/exceptions.py": {
+    "loc": 2,
+    "lloc": 2,
+    "sloc": 2,
+    "comments": 0,
+    "multi": 0,
+    "blank": 0,
+    "single_comments": 0
+  },
+  "piccolo/engine/base.py": {
+    "loc": 229,
+    "lloc": 131,
+    "sloc": 148,
+    "comments": 6,
+    "multi": 21,
+    "blank": 54,
+    "single_comments": 6
+  },
+  "piccolo/engine/postgres.py": {
+    "loc": 598,
+    "lloc": 292,
+    "sloc": 398,
+    "comments": 21,
+    "multi": 58,
+    "blank": 123,
+    "single_comments": 19
+  },
+  "piccolo/engine/__init__.py": {
+    "loc": 13,
+    "lloc": 6,
+    "sloc": 12,
+    "comments": 0,
+    "multi": 0,
+    "blank": 1,
+    "single_comments": 0
+  },
+  "piccolo/engine/sqlite.py": {
+    "loc": 852,
+    "lloc": 389,
+    "sloc": 497,
+    "comments": 44,
+    "multi": 135,
+    "blank": 181,
+    "single_comments": 39
+  },
+  "piccolo/engine/cockroach.py": {
+    "loc": 97,
+    "lloc": 28,
+    "sloc": 59,
+    "comments": 0,
+    "multi": 19,
+    "blank": 19,
+    "single_comments": 0
+  },
+  "piccolo/apps/__init__.py": {
+    "loc": 0,
+    "lloc": 0,
+    "sloc": 0,
+    "comments": 0,
+    "multi": 0,
+    "blank": 0,
+    "single_comments": 0
+  },
+  "piccolo/apps/tester/__init__.py": {
+    "loc": 0,
+    "lloc": 0,
+    "sloc": 0,
+    "comments": 0,
+    "multi": 0,
+    "blank": 0,
+    "single_comments": 0
+  },
+  "piccolo/apps/tester/piccolo_app.py": {
+    "loc": 11,
+    "lloc": 3,
+    "sloc": 9,
+    "comments": 0,
+    "multi": 0,
+    "blank": 2,
+    "single_comments": 0
+  },
+  "piccolo/apps/tester/commands/__init__.py": {
+    "loc": 0,
+    "lloc": 0,
+    "sloc": 0,
+    "comments": 0,
+    "multi": 0,
+    "blank": 0,
+    "single_comments": 0
+  },
+  "piccolo/apps/tester/commands/run.py": {
+    "loc": 84,
+    "lloc": 38,
+    "sloc": 41,
+    "comments": 3,
+    "multi": 20,
+    "blank": 21,
+    "single_comments": 2
+  },
+  "piccolo/apps/shell/__init__.py": {
+    "loc": 0,
+    "lloc": 0,
+    "sloc": 0,
+    "comments": 0,
+    "multi": 0,
+    "blank": 0,
+    "single_comments": 0
+  },
+  "piccolo/apps/shell/piccolo_app.py": {
+    "loc": 9,
+    "lloc": 3,
+    "sloc": 7,
+    "comments": 0,
+    "multi": 0,
+    "blank": 2,
+    "single_comments": 0
+  },
+  "piccolo/apps/shell/commands/__init__.py": {
+    "loc": 0,
+    "lloc": 0,
+    "sloc": 0,
+    "comments": 0,
+    "multi": 0,
+    "blank": 0,
+    "single_comments": 0
+  },
+  "piccolo/apps/shell/commands/run.py": {
+    "loc": 56,
+    "lloc": 35,
+    "sloc": 38,
+    "comments": 4,
+    "multi": 4,
+    "blank": 14,
+    "single_comments": 0
+  },
+  "piccolo/apps/playground/__init__.py": {
+    "loc": 0,
+    "lloc": 0,
+    "sloc": 0,
+    "comments": 0,
+    "multi": 0,
+    "blank": 0,
+    "single_comments": 0
+  },
+  "piccolo/apps/playground/piccolo_app.py": {
+    "loc": 9,
+    "lloc": 3,
+    "sloc": 7,
+    "comments": 0,
+    "multi": 0,
+    "blank": 2,
+    "single_comments": 0
+  },
+  "piccolo/apps/playground/commands/__init__.py": {
+    "loc": 0,
+    "lloc": 0,
+    "sloc": 0,
+    "comments": 0,
+    "multi": 0,
+    "blank": 0,
+    "single_comments": 0
+  },
+  "piccolo/apps/playground/commands/run.py": {
+    "loc": 473,
+    "lloc": 203,
+    "sloc": 373,
+    "comments": 3,
+    "multi": 27,
+    "blank": 70,
+    "single_comments": 3
+  },
+  "piccolo/apps/asgi/__init__.py": {
+    "loc": 0,
+    "lloc": 0,
+    "sloc": 0,
+    "comments": 0,
+    "multi": 0,
+    "blank": 0,
+    "single_comments": 0
+  },
+  "piccolo/apps/asgi/piccolo_app.py": {
+    "loc": 9,
+    "lloc": 3,
+    "sloc": 7,
+    "comments": 0,
+    "multi": 0,
+    "blank": 2,
+    "single_comments": 0
+  },
+  "piccolo/apps/asgi/commands/new.py": {
+    "loc": 134,
+    "lloc": 68,
+    "sloc": 95,
+    "comments": 1,
+    "multi": 9,
+    "blank": 30,
+    "single_comments": 0
+  },
+  "piccolo/apps/asgi/commands/__init__.py": {
+    "loc": 0,
+    "lloc": 0,
+    "sloc": 0,
+    "comments": 0,
+    "multi": 0,
+    "blank": 0,
+    "single_comments": 0
+  },
+  "piccolo/apps/schema/__init__.py": {
+    "loc": 0,
+    "lloc": 0,
+    "sloc": 0,
+    "comments": 0,
+    "multi": 0,
+    "blank": 0,
+    "single_comments": 0
+  },
+  "piccolo/apps/schema/piccolo_app.py": {
+    "loc": 16,
+    "lloc": 4,
+    "sloc": 14,
+    "comments": 0,
+    "multi": 0,
+    "blank": 2,
+    "single_comments": 0
+  },
+  "piccolo/apps/schema/commands/graph.py": {
+    "loc": 113,
+    "lloc": 59,
+    "sloc": 74,
+    "comments": 0,
+    "multi": 17,
+    "blank": 22,
+    "single_comments": 0
+  },
+  "piccolo/apps/schema/commands/exceptions.py": {
+    "loc": 14,
+    "lloc": 6,
+    "sloc": 4,
+    "comments": 0,
+    "multi": 6,
+    "blank": 4,
+    "single_comments": 0
+  },
+  "piccolo/apps/schema/commands/__init__.py": {
+    "loc": 0,
+    "lloc": 0,
+    "sloc": 0,
+    "comments": 0,
+    "multi": 0,
+    "blank": 0,
+    "single_comments": 0
+  },
+  "piccolo/apps/schema/commands/generate.py": {
+    "loc": 949,
+    "lloc": 406,
+    "sloc": 702,
+    "comments": 22,
+    "multi": 100,
+    "blank": 134,
+    "single_comments": 13
+  },
+  "piccolo/apps/migrations/__init__.py": {
+    "loc": 0,
+    "lloc": 0,
+    "sloc": 0,
+    "comments": 0,
+    "multi": 0,
+    "blank": 0,
+    "single_comments": 0
+  },
+  "piccolo/apps/migrations/tables.py": {
+    "loc": 26,
+    "lloc": 16,
+    "sloc": 17,
+    "comments": 0,
+    "multi": 4,
+    "blank": 5,
+    "single_comments": 0
+  },
+  "piccolo/apps/migrations/piccolo_app.py": {
+    "loc": 19,
+    "lloc": 7,
+    "sloc": 17,
+    "comments": 0,
+    "multi": 0,
+    "blank": 2,
+    "single_comments": 0
+  },
+  "piccolo/apps/migrations/commands/new.py": {
+    "loc": 272,
+    "lloc": 102,
+    "sloc": 172,
+    "comments": 15,
+    "multi": 30,
+    "blank": 55,
+    "single_comments": 15
+  },
+  "piccolo/apps/migrations/commands/base.py": {
+    "loc": 138,
+    "lloc": 69,
+    "sloc": 93,
+    "comments": 0,
+    "multi": 23,
+    "blank": 22,
+    "single_comments": 0
+  },
+  "piccolo/apps/migrations/commands/backwards.py": {
+    "loc": 198,
+    "lloc": 85,
+    "sloc": 147,
+    "comments": 6,
+    "multi": 17,
+    "blank": 29,
+    "single_comments": 5
+  },
+  "piccolo/apps/migrations/commands/__init__.py": {
+    "loc": 0,
+    "lloc": 0,
+    "sloc": 0,
+    "comments": 0,
+    "multi": 0,
+    "blank": 0,
+    "single_comments": 0
+  },
+  "piccolo/apps/migrations/commands/clean.py": {
+    "loc": 87,
+    "lloc": 37,
+    "sloc": 55,
+    "comments": 2,
+    "multi": 12,
+    "blank": 18,
+    "single_comments": 2
+  },
+  "piccolo/apps/migrations/commands/forwards.py": {
+    "loc": 169,
+    "lloc": 84,
+    "sloc": 121,
+    "comments": 2,
+    "multi": 19,
+    "blank": 27,
+    "single_comments": 2
+  },
+  "piccolo/apps/migrations/commands/check.py": {
+    "loc": 123,
+    "lloc": 59,
+    "sloc": 83,
+    "comments": 1,
+    "multi": 17,
+    "blank": 22,
+    "single_comments": 1
+  },
+  "piccolo/apps/migrations/auto/schema_differ.py": {
+    "loc": 706,
+    "lloc": 309,
+    "sloc": 527,
+    "comments": 43,
+    "multi": 31,
+    "blank": 112,
+    "single_comments": 36
+  },
+  "piccolo/apps/migrations/auto/diffable_table.py": {
+    "loc": 234,
+    "lloc": 88,
+    "sloc": 154,
+    "comments": 13,
+    "multi": 34,
+    "blank": 40,
+    "single_comments": 6
+  },
+  "piccolo/apps/migrations/auto/__init__.py": {
+    "loc": 12,
+    "lloc": 5,
+    "sloc": 11,
+    "comments": 0,
+    "multi": 0,
+    "blank": 1,
+    "single_comments": 0
+  },
+  "piccolo/apps/migrations/auto/schema_snapshot.py": {
+    "loc": 114,
+    "lloc": 60,
+    "sloc": 78,
+    "comments": 9,
+    "multi": 4,
+    "blank": 23,
+    "single_comments": 9
+  },
+  "piccolo/apps/migrations/auto/serialisation_legacy.py": {
+    "loc": 56,
+    "lloc": 37,
+    "sloc": 41,
+    "comments": 1,
+    "multi": 4,
+    "blank": 10,
+    "single_comments": 1
+  },
+  "piccolo/apps/migrations/auto/operations.py": {
+    "loc": 65,
+    "lloc": 89,
+    "sloc": 52,
+    "comments": 0,
+    "multi": 0,
+    "blank": 13,
+    "single_comments": 0
+  },
+  "piccolo/apps/migrations/auto/serialisation.py": {
+    "loc": 829,
+    "lloc": 409,
+    "sloc": 553,
+    "comments": 55,
+    "multi": 42,
+    "blank": 178,
+    "single_comments": 56
+  },
+  "piccolo/apps/migrations/auto/migration_manager.py": {
+    "loc": 1019,
+    "lloc": 403,
+    "sloc": 788,
+    "comments": 54,
+    "multi": 45,
+    "blank": 133,
+    "single_comments": 53
+  },
+  "piccolo/apps/project/__init__.py": {
+    "loc": 0,
+    "lloc": 0,
+    "sloc": 0,
+    "comments": 0,
+    "multi": 0,
+    "blank": 0,
+    "single_comments": 0
+  },
+  "piccolo/apps/project/piccolo_app.py": {
+    "loc": 9,
+    "lloc": 3,
+    "sloc": 7,
+    "comments": 0,
+    "multi": 0,
+    "blank": 2,
+    "single_comments": 0
+  },
+  "piccolo/apps/project/commands/new.py": {
+    "loc": 53,
+    "lloc": 20,
+    "sloc": 27,
+    "comments": 1,
+    "multi": 12,
+    "blank": 14,
+    "single_comments": 0
+  },
+  "piccolo/apps/project/commands/__init__.py": {
+    "loc": 0,
+    "lloc": 0,
+    "sloc": 0,
+    "comments": 0,
+    "multi": 0,
+    "blank": 0,
+    "single_comments": 0
+  },
+  "piccolo/apps/sql_shell/__init__.py": {
+    "loc": 0,
+    "lloc": 0,
+    "sloc": 0,
+    "comments": 0,
+    "multi": 0,
+    "blank": 0,
+    "single_comments": 0
+  },
+  "piccolo/apps/sql_shell/piccolo_app.py": {
+    "loc": 9,
+    "lloc": 3,
+    "sloc": 7,
+    "comments": 0,
+    "multi": 0,
+    "blank": 2,
+    "single_comments": 0
+  },
+  "piccolo/apps/sql_shell/commands/__init__.py": {
+    "loc": 0,
+    "lloc": 0,
+    "sloc": 0,
+    "comments": 0,
+    "multi": 0,
+    "blank": 0,
+    "single_comments": 0
+  },
+  "piccolo/apps/sql_shell/commands/run.py": {
+    "loc": 66,
+    "lloc": 45,
+    "sloc": 47,
+    "comments": 3,
+    "multi": 4,
+    "blank": 12,
+    "single_comments": 3
+  },
+  "piccolo/apps/app/__init__.py": {
+    "loc": 0,
+    "lloc": 0,
+    "sloc": 0,
+    "comments": 0,
+    "multi": 0,
+    "blank": 0,
+    "single_comments": 0
+  },
+  "piccolo/apps/app/piccolo_app.py": {
+    "loc": 13,
+    "lloc": 4,
+    "sloc": 11,
+    "comments": 0,
+    "multi": 0,
+    "blank": 2,
+    "single_comments": 0
+  },
+  "piccolo/apps/app/commands/new.py": {
+    "loc": 122,
+    "lloc": 60,
+    "sloc": 71,
+    "comments": 0,
+    "multi": 19,
+    "blank": 32,
+    "single_comments": 0
+  },
+  "piccolo/apps/app/commands/__init__.py": {
+    "loc": 0,
+    "lloc": 0,
+    "sloc": 0,
+    "comments": 0,
+    "multi": 0,
+    "blank": 0,
+    "single_comments": 0
+  },
+  "piccolo/apps/app/commands/show_all.py": {
+    "loc": 13,
+    "lloc": 7,
+    "sloc": 6,
+    "comments": 0,
+    "multi": 3,
+    "blank": 4,
+    "single_comments": 0
+  },
+  "piccolo/apps/meta/__init__.py": {
+    "loc": 0,
+    "lloc": 0,
+    "sloc": 0,
+    "comments": 0,
+    "multi": 0,
+    "blank": 0,
+    "single_comments": 0
+  },
+  "piccolo/apps/meta/piccolo_app.py": {
+    "loc": 9,
+    "lloc": 3,
+    "sloc": 7,
+    "comments": 0,
+    "multi": 0,
+    "blank": 2,
+    "single_comments": 0
+  },
+  "piccolo/apps/meta/commands/__init__.py": {
+    "loc": 0,
+    "lloc": 0,
+    "sloc": 0,
+    "comments": 0,
+    "multi": 0,
+    "blank": 0,
+    "single_comments": 0
+  },
+  "piccolo/apps/meta/commands/version.py": {
+    "loc": 8,
+    "lloc": 4,
+    "sloc": 3,
+    "comments": 0,
+    "multi": 3,
+    "blank": 2,
+    "single_comments": 0
+  },
+  "piccolo/apps/fixtures/__init__.py": {
+    "loc": 0,
+    "lloc": 0,
+    "sloc": 0,
+    "comments": 0,
+    "multi": 0,
+    "blank": 0,
+    "single_comments": 0
+  },
+  "piccolo/apps/fixtures/piccolo_app.py": {
+    "loc": 12,
+    "lloc": 4,
+    "sloc": 10,
+    "comments": 0,
+    "multi": 0,
+    "blank": 2,
+    "single_comments": 0
+  },
+  "piccolo/apps/fixtures/commands/dump.py": {
+    "loc": 130,
+    "lloc": 54,
+    "sloc": 71,
+    "comments": 1,
+    "multi": 32,
+    "blank": 26,
+    "single_comments": 1
+  },
+  "piccolo/apps/fixtures/commands/shared.py": {
+    "loc": 53,
+    "lloc": 30,
+    "sloc": 35,
+    "comments": 2,
+    "multi": 3,
+    "blank": 15,
+    "single_comments": 0
+  },
+  "piccolo/apps/fixtures/commands/__init__.py": {
+    "loc": 0,
+    "lloc": 0,
+    "sloc": 0,
+    "comments": 0,
+    "multi": 0,
+    "blank": 0,
+    "single_comments": 0
+  },
+  "piccolo/apps/fixtures/commands/load.py": {
+    "loc": 136,
+    "lloc": 50,
+    "sloc": 88,
+    "comments": 7,
+    "multi": 16,
+    "blank": 25,
+    "single_comments": 7
+  },
+  "piccolo/apps/user/__init__.py": {
+    "loc": 0,
+    "lloc": 0,
+    "sloc": 0,
+    "comments": 0,
+    "multi": 0,
+    "blank": 0,
+    "single_comments": 0
+  },
+  "piccolo/apps/user/tables.py": {
+    "loc": 286,
+    "lloc": 135,
+    "sloc": 167,
+    "comments": 14,
+    "multi": 54,
+    "blank": 51,
+    "single_comments": 14
+  },
+  "piccolo/apps/user/piccolo_app.py": {
+    "loc": 27,
+    "lloc": 9,
+    "sloc": 22,
+    "comments": 0,
+    "multi": 0,
+    "blank": 5,
+    "single_comments": 0
+  },
+  "piccolo/apps/user/piccolo_migrations/__init__.py": {
+    "loc": 0,
+    "lloc": 0,
+    "sloc": 0,
+    "comments": 0,
+    "multi": 0,
+    "blank": 0,
+    "single_comments": 0
+  },
+  "piccolo/apps/user/piccolo_migrations/2019-11-14T21-52-21.py": {
+    "loc": 78,
+    "lloc": 16,
+    "sloc": 74,
+    "comments": 0,
+    "multi": 0,
+    "blank": 4,
+    "single_comments": 0
+  },
+  "piccolo/apps/user/piccolo_migrations/2021-04-30T16-14-15.py": {
+    "loc": 44,
+    "lloc": 12,
+    "sloc": 38,
+    "comments": 0,
+    "multi": 0,
+    "blank": 6,
+    "single_comments": 0
+  },
+  "piccolo/apps/user/piccolo_migrations/2020-06-11T21-38-55.py": {
+    "loc": 39,
+    "lloc": 9,
+    "sloc": 33,
+    "comments": 0,
+    "multi": 0,
+    "blank": 6,
+    "single_comments": 0
+  },
+  "piccolo/apps/user/commands/list.py": {
+    "loc": 71,
+    "lloc": 25,
+    "sloc": 47,
+    "comments": 0,
+    "multi": 10,
+    "blank": 14,
+    "single_comments": 0
+  },
+  "piccolo/apps/user/commands/change_permissions.py": {
+    "loc": 56,
+    "lloc": 24,
+    "sloc": 33,
+    "comments": 1,
+    "multi": 11,
+    "blank": 12,
+    "single_comments": 0
+  },
+  "piccolo/apps/user/commands/create.py": {
+    "loc": 92,
+    "lloc": 52,
+    "sloc": 65,
+    "comments": 0,
+    "multi": 3,
+    "blank": 24,
+    "single_comments": 0
+  },
+  "piccolo/apps/user/commands/__init__.py": {
+    "loc": 0,
+    "lloc": 0,
+    "sloc": 0,
+    "comments": 0,
+    "multi": 0,
+    "blank": 0,
+    "single_comments": 0
+  },
+  "piccolo/apps/user/commands/change_password.py": {
+    "loc": 27,
+    "lloc": 13,
+    "sloc": 18,
+    "comments": 0,
+    "multi": 3,
+    "blank": 6,
+    "single_comments": 0
+  }
+}
